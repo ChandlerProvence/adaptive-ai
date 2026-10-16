@@ -1,0 +1,44 @@
+# Decision Support: trade-offs, recommendations, confidence levels. Clear rationale.
+description: |
+  Support decision-making with trade-offs, clear recommendations, and confidence levels.
+  Provide explicit rationale for each recommendation.
+
+audience:
+  decision_maker: |
+    Provide trade-offs, a clear recommendation, and confidence levels. Lead with rationale
+    for the recommendation; support with evidence. Keep to top 3 options with comparison.
+  executive: |
+    Keep to top 2–3 options. Lead with recommendation and one-paragraph rationale; include
+    risk and resource implications. Executive-ready brevity.
+  partner: |
+    Emphasize shared trade-offs and coordination implications. Clear recommendation with
+    rationale; call out where partner alignment or action is required.
+  commander: |
+    Lead with recommendation and risk; support with clear COA comparison and confidence.
+    Explicit rationale; actionable next steps. Decision-ready.
+  analyst: |
+    Full trade-off analysis with evidence mapping. Include confidence levels and rationale
+    for each option; recommend one with detailed justification.
+
+intended_use:
+  recommendation_brief: |
+    Single clear recommendation with rationale; compare alternatives briefly; decision-ready.
+  trade_off_analysis: |
+    Full comparison of options; trade-offs, risks, and confidence; support deliberation.
+  confidence_assessment: |
+    Emphasize confidence levels and evidence strength; where uncertainty remains.
+
+release_level:
+  draft: Preliminary recommendation; may change with new information.
+  decision_ready: Recommendation and rationale stable; suitable for decision.
+  exploratory: Early view; recommendation tentative; expect refinement.
+
+time_sensitivity:
+  high: Urgent decision; concise recommendation and key trade-offs only.
+  medium: Normal timeline; full comparison and rationale.
+  low: Deliberate; maximum analysis and evidence linkage.
+
+risk_tolerance:
+  high: Recommendation with caveats; uncertainty acceptable.
+  moderate: Balance confidence and completeness; flag key uncertainties.
+  low: Only high-confidence recommendation; minimize speculation.

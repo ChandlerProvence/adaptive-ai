@@ -1,0 +1,27 @@
+# MDMP — Mission Analysis / Identified Tasks
+
+task_id: identifiedTasks
+name: "MDMP Identified Tasks"
+
+artifact:
+  artifact_type: IDENTIFIED_TASKS
+  schema_ref: identifiedTasks.schema.json
+
+retrieval:
+  mode: doc_file
+
+prompt_template: "mdmp_identifiedTasks.yaml"
+
+failure_behavior:
+  on_validation_failure:
+    message: "MDMP output failed schema validation."
+  on_llm_error:
+    message: "LLM API error during MDMP task execution."
+  on_parse_error:
+    message: "Could not extract valid JSON from MDMP response."
+
+description: |
+  [MDMP — Mission Analysis / Identified Tasks]
+  Identify specified, implied, and essential tasks from the mission and higher guidance.
+  Populate display_text with human-readable narrative for the UI.
+  All structured claims must include evidence_refs citing CIT-#### IDs.

@@ -1,0 +1,15 @@
+{
+  "kind": "artifact_schema",
+  "id": "schema.mp_correlation",
+  "version": 0,
+  "name": "Correlation",
+  "status": "published",
+  "body": {
+    "summary": "MDMP artifact for Correlation (Mission Analysis).",
+    "requiredSections": [
+      "display_text",
+      "factors"
+    ],
+    "sourceFile": "historical_reference/update/data/schemas/correlation.schema.json"
+  }
+}

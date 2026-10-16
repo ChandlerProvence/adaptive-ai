@@ -1,0 +1,15 @@
+{
+  "kind": "artifact_schema",
+  "id": "schema.mp_cbtPower",
+  "version": 0,
+  "name": "Correlation of Forces and Means",
+  "status": "published",
+  "body": {
+    "summary": "MDMP artifact for Combat Power (COA Development).",
+    "requiredSections": [
+      "display_text",
+      "units"
+    ],
+    "sourceFile": "historical_reference/update/data/schemas/cbtPower.schema.json"
+  }
+}

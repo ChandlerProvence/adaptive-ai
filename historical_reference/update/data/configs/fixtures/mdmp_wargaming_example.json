@@ -1,0 +1,25 @@
+{
+  "artifact_type": "COA_ASSUMPTIONS",
+  "schema_version": "1.0.0",
+  "context": {
+    "mission_id": "example-mission",
+    "mission_type": "MISO",
+    "organization_id": "ORG-1",
+    "team_id": "TEAM-1",
+    "aoi": "AOI-EXAMPLE",
+    "time_window": "P30D",
+    "task_id": "example-task",
+    "purpose_id": "planning"
+  },
+  "display_text": "Example narrative for UI display.",
+  "citations": [],
+  "assessments": [
+    {
+      "id": "ITEM-1",
+      "title": "Example item",
+      "description": "Example structured item for fixture validation.",
+      "evidence_refs": [],
+      "coa_id": "COA-1"
+    }
+  ]
+}

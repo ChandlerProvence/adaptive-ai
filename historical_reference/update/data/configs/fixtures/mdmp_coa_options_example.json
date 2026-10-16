@@ -1,0 +1,32 @@
+{
+  "artifact_type": "COA_OPTIONS",
+  "schema_version": "1.0.0",
+  "context": {
+    "mission_id": "example-mission",
+    "mission_type": "MISO",
+    "organization_id": "ORG-1",
+    "team_id": "TEAM-1",
+    "aoi": "AOI-EXAMPLE",
+    "time_window": "P30D",
+    "task_id": "example-task",
+    "purpose_id": "planning"
+  },
+  "display_text": "Example narrative for UI display.",
+  "citations": [],
+  "executive_summary": {
+    "bullets": [
+      "Bullet one.",
+      "Bullet two."
+    ]
+  },
+  "courses_of_action": [
+    {
+      "id": "COA-A",
+      "title": "Option A",
+      "description": "Example COA option description for fixture.",
+      "evidence_refs": [
+        "CIT-0001"
+      ]
+    }
+  ]
+}

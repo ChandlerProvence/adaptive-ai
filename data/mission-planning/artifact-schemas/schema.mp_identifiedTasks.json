@@ -1,0 +1,15 @@
+{
+  "kind": "artifact_schema",
+  "id": "schema.mp_identifiedTasks",
+  "version": 0,
+  "name": "Identified Tasks",
+  "status": "published",
+  "body": {
+    "summary": "MDMP artifact for Identified Tasks (Mission Analysis).",
+    "requiredSections": [
+      "display_text",
+      "items"
+    ],
+    "sourceFile": "historical_reference/update/data/schemas/identifiedTasks.schema.json"
+  }
+}

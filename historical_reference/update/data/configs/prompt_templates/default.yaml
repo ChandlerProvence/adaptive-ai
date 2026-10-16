@@ -1,0 +1,88 @@
+# Default prompt template for tasks without custom prompt_graph configuration
+# This serves as a reference and can be extended by task-specific templates
+
+version: "1.0"
+description: "Default prompt template structure"
+
+nodes:
+  - id: "system_role"
+    type: "template"
+    template: |
+      You are supporting a {{ mission_type }} analyst performing task: {{ task_id }} (artifact type: {{ artifact_type }}).
+
+  - id: "requirements"
+    type: "static"
+    content: |
+      CRITICAL REQUIREMENTS - NO HALLUCINATION:
+      1. EVERY claim, fact, assessment, or finding MUST be directly supported by the provided evidence
+      2. DO NOT invent, assume, or infer information not explicitly stated in the evidence
+      3. DO NOT use general knowledge or training data - ONLY use the provided evidence
+      4. If evidence is insufficient for a required field, state "Insufficient evidence" rather than inventing content
+      5. EVERY statement must be traceable to a specific evidence source
+      6. Prioritize evidence from preferred/trusted sources when available
+      7. If you cannot substantiate a claim with evidence, explicitly state the limitation
+
+  - id: "task_description"
+    type: "template"
+    template: |
+      {{ task_config.description }}
+
+  - id: "mission_context"
+    type: "template"
+    template: |
+      MISSION CONTEXT:
+      Mission Statement: {{ mission_statement }}
+      AOI/AOR: {{ aoi }}
+      Time Window: {{ time_window }}
+      Organization: {{ organization_id }}
+      Team: {{ team_id }}
+
+  - id: "purpose_profile"
+    type: "template"
+    template: |
+      PURPOSE PROFILE (WHY — SCOPE YOUR OUTPUT ACCORDINGLY):
+      Audience: {{ audience }}
+      Intended Use: {{ intended_use }}
+      Release Level: {{ release_level }}
+      Time Sensitivity: {{ time_sensitivity }}
+      Risk Tolerance: {{ risk_tolerance }}
+
+  - id: "evidence"
+    type: "evidence_formatter"
+
+  - id: "cot_instructions"
+    type: "static"
+    content: |
+      APPROACH THIS TASK USING CHAIN-OF-THOUGHT REASONING. Show your reasoning process step-by-step, then provide the final artifact.
+
+      STEP 1: EVIDENCE ANALYSIS
+      - Review each evidence block systematically
+      - Identify key facts, claims, and data points from each source
+
+      STEP 2: PATTERN IDENTIFICATION
+      - Look for patterns across evidence sources
+
+      STEP 3: SYNTHESIS AND INTERPRETATION
+      - Synthesize evidence into coherent insights
+
+      STEP 4: ARTIFACT CONSTRUCTION
+      - Structure your findings according to the required artifact format
+
+  - id: "schema_instructions"
+    type: "schema_generator"
+
+edges:
+  - from: "system_role"
+    to: "requirements"
+  - from: "requirements"
+    to: "task_description"
+  - from: "task_description"
+    to: "mission_context"
+  - from: "mission_context"
+    to: "purpose_profile"
+  - from: "purpose_profile"
+    to: "evidence"
+  - from: "evidence"
+    to: "cot_instructions"
+  - from: "cot_instructions"
+    to: "schema_instructions"

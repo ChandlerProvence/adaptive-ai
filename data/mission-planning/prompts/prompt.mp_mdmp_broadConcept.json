@@ -1,0 +1,14 @@
+{
+  "kind": "prompt",
+  "id": "prompt.mp_mdmp_broadConcept",
+  "version": 0,
+  "name": "Broad Concept",
+  "status": "published",
+  "forkedFrom": {
+    "id": "prompt.mp_mdmp_base",
+    "version": 0
+  },
+  "overrides": {
+    "objective": "[MDMP — COA Development / Broad Concept]\nArticulate the broad operational concept tying mission, intent, and proposed approach.\nPopulate display_text with human-readable narrative for the UI.\nAll structured claims must include evidence_refs citing CIT-#### IDs."
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "kind": "artifact_schema",
+  "id": "schema.mp_narrative_analysis",
+  "version": 0,
+  "name": "Narrative Analysis",
+  "status": "published",
+  "body": {
+    "summary": "Comprehensive narrative analysis with evidence citations.",
+    "requiredSections": [
+      "analysis"
+    ],
+    "sourceFile": "historical_reference/update/data/schemas/narrative_analysis.schema.json"
+  }
+}

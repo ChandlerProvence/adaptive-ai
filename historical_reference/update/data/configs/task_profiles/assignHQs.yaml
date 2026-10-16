@@ -1,0 +1,27 @@
+# MDMP — COA Development / Assign HQs
+
+task_id: assignHQs
+name: "MDMP Assign HQs"
+
+artifact:
+  artifact_type: ASSIGN_HQS
+  schema_ref: assignHQs.schema.json
+
+retrieval:
+  mode: doc_file
+
+prompt_template: "mdmp_assignHQs.yaml"
+
+failure_behavior:
+  on_validation_failure:
+    message: "MDMP output failed schema validation."
+  on_llm_error:
+    message: "LLM API error during MDMP task execution."
+  on_parse_error:
+    message: "Could not extract valid JSON from MDMP response."
+
+description: |
+  [MDMP — COA Development / Assign HQs]
+  Recommend headquarters assignments and command relationships for the operation.
+  Populate display_text with human-readable narrative for the UI.
+  All structured claims must include evidence_refs citing CIT-#### IDs.

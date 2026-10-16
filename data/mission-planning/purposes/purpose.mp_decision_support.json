@@ -1,0 +1,15 @@
+{
+  "kind": "purpose",
+  "id": "purpose.mp_decision_support",
+  "version": 0,
+  "name": "Decision Support",
+  "status": "published",
+  "body": {
+    "summary": "Support decision-making with trade-offs, clear recommendations, and confidence levels.\nProvide explicit rationale for each recommendation.\n\nLead with recommendation and risk; support with clear COA comparison and confidence.\nExplicit rationale; actionable next steps. Decision-ready.",
+    "audience": "Commander",
+    "tone": "Analytical",
+    "evidenceRequirement": "Cite supplied evidence for every claim. Mark insufficient evidence explicitly. Use citation ids in the form CIT-0001.",
+    "riskTolerance": "Moderate",
+    "detail": "High"
+  }
+}

@@ -1,0 +1,35 @@
+# Operational Analysis — mission-agnostic; analyzes operational context and requirements.
+
+task_id: operational_analysis
+name: "Operational Analysis"
+
+artifact:
+  artifact_type: OPERATIONAL_ANALYSIS
+  schema_ref: operational_analysis.schema.json
+
+retrieval:
+  mode: doc_file
+  # doc_path passed at runtime from input
+
+# Use graph-based prompt system with default template
+prompt_template: "default.yaml"
+
+failure_behavior:
+  on_validation_failure:
+    save_partial: true
+    save_raw_response: true
+    exit_code: 1
+    message: "Operational analysis output failed schema validation; partial outputs saved."
+  on_llm_error:
+    exit_code: 2
+    message: "LiteLLM API error. Ensure VPN is connected if required."
+  on_parse_error:
+    save_partial: true
+    save_raw_response: true
+    exit_code: 2
+    message: "Could not extract valid JSON from LLM response."
+
+description: |
+  Conduct operational analysis of the mission context. Analyze operational requirements,
+  capabilities, resources, timelines, and dependencies. Identify key operational factors
+  that influence mission planning and execution. All analysis must cite evidence sources.

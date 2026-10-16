@@ -1,0 +1,20 @@
+{
+  "kind": "custom_insert",
+  "id": "insert.mp_narrative_analysis",
+  "version": 0,
+  "name": "Narrative Analysis",
+  "status": "published",
+  "body": {
+    "category": "analysis",
+    "executionMode": "in",
+    "summary": "Conduct comprehensive narrative analysis including: structure extraction, actor identification,\nintent statement detection, ambiguity detection, redundancy detection, clarity evaluation,\nlogical coherence analysis, missing component identification, and persuasive strength assessment.\nAll analysis must cite evidence sources.",
+    "prompt": {
+      "id": "prompt.mp_mdmp_base",
+      "version": 0
+    },
+    "artifactSchema": {
+      "id": "schema.mp_narrative_analysis",
+      "version": 0
+    }
+  }
+}

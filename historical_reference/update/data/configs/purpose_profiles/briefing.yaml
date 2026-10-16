@@ -1,0 +1,45 @@
+# Briefing / Communication: executive-ready. Concise. Visualizable outputs.
+description: |
+  Executive-ready briefing. Concise, scannable, and suitable for visualization.
+  Prioritize clarity and key takeaways over exhaustive detail.
+
+audience:
+  executive: |
+    Executive-ready. Concise, scannable, visualizable. Key takeaways first; minimal jargon.
+    One-page summary possible; support for charts or bullets.
+  partner: |
+    Briefing suitable for shared or external audiences. Clear takeaways and coordination
+    points; professional tone; visualizable where useful.
+  commander: |
+    Command briefing format. Bottom line up front; key facts and recommendation.
+    Scannable; suitable for verbal or slide backup.
+  analyst: |
+    Briefing version of analysis. Concise but traceable to evidence; key findings and
+    gaps. Support for visualization or annex.
+  planner: |
+    Briefing for planning audiences. Options and implications in scannable form;
+    clarity over exhaustiveness.
+
+intended_use:
+  public_messaging: |
+    For external or public-facing messaging. Clear, approved lines; minimal nuance;
+    suitable for release.
+  internal_messaging: |
+    For internal stakeholders. Can include caveats and sensitivity; not for public release.
+  slide_deck: |
+    Structured for slides: headlines, bullets, minimal prose. Visualizable; speaker notes optional.
+
+release_level:
+  draft: Working draft; not for decision or release; can change substantially.
+  final: Approved for use; suitable for decision or release.
+  exploratory: Early draft; testing ideas; expect revision.
+
+time_sensitivity:
+  high: Urgent; minimal time for review; prioritize speed and clarity.
+  medium: Normal timeline; allow for review and iteration.
+  low: No time pressure; quality and completeness over speed.
+
+risk_tolerance:
+  high: Exploratory; uncertainty and alternatives acceptable.
+  moderate: Balance confidence and completeness; flag key uncertainties.
+  low: Decision-ready; only well-supported claims; minimize speculation.

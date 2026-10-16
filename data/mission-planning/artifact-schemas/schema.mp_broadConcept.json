@@ -1,0 +1,15 @@
+{
+  "kind": "artifact_schema",
+  "id": "schema.mp_broadConcept",
+  "version": 0,
+  "name": "Broad Concept",
+  "status": "published",
+  "body": {
+    "summary": "MDMP artifact for Broad Concept (COA Development).",
+    "requiredSections": [
+      "display_text",
+      "approved_content"
+    ],
+    "sourceFile": "historical_reference/update/data/schemas/broadConcept.schema.json"
+  }
+}

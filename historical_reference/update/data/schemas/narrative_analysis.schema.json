@@ -1,0 +1,274 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "NARRATIVE_ANALYSIS",
+  "description": "Comprehensive narrative analysis with evidence citations.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_type",
+    "schema_version",
+    "context",
+    "analysis",
+    "citations"
+  ],
+  "properties": {
+    "artifact_type": {
+      "type": "string",
+      "const": "NARRATIVE_ANALYSIS"
+    },
+    "schema_version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "context": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mission_id",
+        "mission_type",
+        "organization_id",
+        "team_id",
+        "aoi",
+        "time_window",
+        "task_id",
+        "purpose_id"
+      ],
+      "properties": {
+        "mission_id": { "type": ["string", "integer"] },
+        "mission_type": { "type": "string" },
+        "organization_id": { "type": "string" },
+        "team_id": { "type": "string" },
+        "aoi": { "type": "string" },
+        "aor": { "type": "string" },
+        "time_window": { "type": "string" },
+        "task_id": { "type": "string" },
+        "purpose_id": { "type": "string" },
+        "run_id": { "type": "string" }
+      }
+    },
+    "analysis": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "structure": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "description": { "type": "string" },
+            "evidence_refs": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/citation_id" }
+            }
+          }
+        },
+        "actors": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "name", "role", "evidence_refs"],
+            "properties": {
+              "id": { "type": "string" },
+              "name": { "type": "string" },
+              "role": { "type": "string" },
+              "evidence_refs": {
+                "type": "array",
+                "minItems": 1,
+                "items": { "$ref": "#/definitions/citation_id" }
+              }
+            }
+          }
+        },
+        "intent_statements": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "statement", "evidence_refs"],
+            "properties": {
+              "id": { "type": "string" },
+              "statement": { "type": "string", "minLength": 10 },
+              "evidence_refs": {
+                "type": "array",
+                "minItems": 1,
+                "items": { "$ref": "#/definitions/citation_id" }
+              }
+            }
+          }
+        },
+        "ambiguity": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "description", "evidence_refs"],
+            "properties": {
+              "id": { "type": "string" },
+              "description": { "type": "string", "minLength": 10 },
+              "severity": { "type": "string", "enum": ["high", "medium", "low"] },
+              "evidence_refs": {
+                "type": "array",
+                "minItems": 1,
+                "items": { "$ref": "#/definitions/citation_id" }
+              }
+            }
+          }
+        },
+        "redundancy": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "description", "evidence_refs"],
+            "properties": {
+              "id": { "type": "string" },
+              "description": { "type": "string", "minLength": 10 },
+              "evidence_refs": {
+                "type": "array",
+                "minItems": 1,
+                "items": { "$ref": "#/definitions/citation_id" }
+              }
+            }
+          }
+        },
+        "clarity": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "overall_score": { "type": "string", "enum": ["high", "medium", "low"] },
+            "issues": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["id", "description", "evidence_refs"],
+                "properties": {
+                  "id": { "type": "string" },
+                  "description": { "type": "string", "minLength": 10 },
+                  "evidence_refs": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": { "$ref": "#/definitions/citation_id" }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "logical_coherence": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "overall_assessment": { "type": "string" },
+            "inconsistencies": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["id", "description", "evidence_refs"],
+                "properties": {
+                  "id": { "type": "string" },
+                  "description": { "type": "string", "minLength": 10 },
+                  "evidence_refs": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": { "$ref": "#/definitions/citation_id" }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "missing_components": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "component", "description", "evidence_refs"],
+            "properties": {
+              "id": { "type": "string" },
+              "component": { "type": "string" },
+              "description": { "type": "string", "minLength": 10 },
+              "evidence_refs": {
+                "type": "array",
+                "minItems": 1,
+                "items": { "$ref": "#/definitions/citation_id" }
+              }
+            }
+          }
+        },
+        "persuasive_strength": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "assessment": { "type": "string", "enum": ["strong", "medium", "weak"] },
+            "factors": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["id", "factor", "description", "evidence_refs"],
+                "properties": {
+                  "id": { "type": "string" },
+                  "factor": { "type": "string" },
+                  "description": { "type": "string", "minLength": 10 },
+                  "evidence_refs": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": { "$ref": "#/definitions/citation_id" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "citations": {
+      "type": "array",
+      "minItems": 0,
+      "items": { "$ref": "#/definitions/citation" }
+    }
+  },
+  "definitions": {
+    "citation_id": {
+      "type": "string",
+      "pattern": "^CIT-[0-9]{4}$"
+    },
+    "citation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "citation_id",
+        "source_system",
+        "document_id",
+        "document_version",
+        "retrieval_time",
+        "range",
+        "snippet"
+      ],
+      "properties": {
+        "citation_id": { "$ref": "#/definitions/citation_id" },
+        "source_system": { "type": "string" },
+        "document_id": { "type": "string" },
+        "document_version": { "type": "string" },
+        "retrieval_time": { "type": "string", "format": "date-time" },
+        "range": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "start", "end"],
+          "properties": {
+            "type": { "type": "string", "enum": ["char", "page_line", "timecode"] },
+            "start": { "type": ["integer", "string"] },
+            "end": { "type": ["integer", "string"] },
+            "page": { "type": "integer" },
+            "line_start": { "type": "integer" },
+            "line_end": { "type": "integer" }
+          }
+        },
+        "snippet": { "type": "string", "minLength": 5, "maxLength": 1200 },
+        "canonical_uri": { "type": "string" }
+      }
+    }
+  }
+}

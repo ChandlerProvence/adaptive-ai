@@ -1,0 +1,44 @@
+# Planning: forward-looking, options-focused. Assumptions explicit. Multiple COAs encouraged.
+description: |
+  Forward-looking planning. Emphasize options, alternatives, and explicit assumptions.
+  Multiple COAs encouraged; do not collapse to a single recommendation.
+
+audience:
+  planner: |
+    Emphasize options, alternatives, and explicit assumptions. Multiple COAs encouraged.
+    Do not collapse to a single recommendation; keep options open for further planning.
+  executive: |
+    Present 3–5 distinct options with clear trade-offs. Lead with a one-page summary of options;
+    keep assumptions and constraints explicit so leadership can weigh in.
+  partner: |
+    Frame options in terms of shared constraints and coordination points. Highlight where
+    partner input or alignment is needed. Multiple COAs with clear interdependencies.
+  commander: |
+    Options-focused; state assumptions explicitly. Include risk and resource implications
+    for each option. Do not recommend a single COA—support commander decision.
+  analyst: |
+    Full set of options with detailed assumptions and evidence links. Encourage multiple COAs;
+    document gaps and uncertainties for each option.
+
+intended_use:
+  options_development: |
+    Develop and compare multiple options; keep assumptions explicit; do not recommend one.
+  assumptions_review: |
+    Surface and validate assumptions across options; highlight dependencies and risks.
+  contingency_planning: |
+    Plan for branches and contingencies; what-if and trigger-based next steps.
+
+release_level:
+  draft: Working draft; options may change; not for final decision.
+  final: Options set stable; ready for decision or handoff.
+  exploratory: Early option set; expect iteration and new options.
+
+time_sensitivity:
+  high: Urgent planning window; prioritize viable options and key trade-offs.
+  medium: Normal planning cycle; full option development and comparison.
+  low: Deliberate planning; maximum breadth and assumption scrutiny.
+
+risk_tolerance:
+  high: Exploratory; speculative options and weak evidence acceptable.
+  moderate: Balance options with evidence; flag uncertainties.
+  low: Only well-supported options; minimize speculation.

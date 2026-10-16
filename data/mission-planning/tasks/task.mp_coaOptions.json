@@ -1,0 +1,23 @@
+{
+  "kind": "task",
+  "id": "task.mp_coaOptions",
+  "version": 0,
+  "name": "COA Options",
+  "status": "published",
+  "body": {
+    "summary": "[MDMP — COA Development / COA Options]\nDevelop multiple course of action options with executive summary for commander review.\nPopulate display_text with human-readable narrative for the UI.\nAll structured claims must include evidence_refs citing CIT-#### IDs.",
+    "prompt": {
+      "id": "prompt.mp_mdmp_coaOptions",
+      "version": 0
+    },
+    "artifactSchema": {
+      "id": "schema.mp_coaOptions",
+      "version": 0
+    },
+    "llm": {
+      "id": "llm.gpt_4o",
+      "version": 0
+    },
+    "requiredInputs": []
+  }
+}

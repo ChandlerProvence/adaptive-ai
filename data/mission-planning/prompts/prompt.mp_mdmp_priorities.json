@@ -1,0 +1,14 @@
+{
+  "kind": "prompt",
+  "id": "prompt.mp_mdmp_priorities",
+  "version": 0,
+  "name": "Priorities",
+  "status": "published",
+  "forkedFrom": {
+    "id": "prompt.mp_mdmp_base",
+    "version": 0
+  },
+  "overrides": {
+    "objective": "[MDMP — Mission Analysis / Priorities]\nEstablish planning priorities based on mission analysis, commander intent, and available resources.\nPopulate display_text with human-readable narrative for the UI.\nAll structured claims must include evidence_refs citing CIT-#### IDs."
+  }
+}

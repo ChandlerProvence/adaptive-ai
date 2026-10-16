@@ -1,0 +1,23 @@
+{
+  "kind": "task",
+  "id": "task.mp_compareCoas",
+  "version": 0,
+  "name": "Compare COAs",
+  "status": "published",
+  "body": {
+    "summary": "[MDMP — COA Comparison / Compare COAs]\nCompare courses of action against evaluation criteria with evidence-backed rationale.\nPopulate display_text with human-readable narrative for the UI.\nAll structured claims must include evidence_refs citing CIT-#### IDs.",
+    "prompt": {
+      "id": "prompt.mp_mdmp_compareCoas",
+      "version": 0
+    },
+    "artifactSchema": {
+      "id": "schema.mp_compareCoas",
+      "version": 0
+    },
+    "llm": {
+      "id": "llm.gpt_4o",
+      "version": 0
+    },
+    "requiredInputs": []
+  }
+}

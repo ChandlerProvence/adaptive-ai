@@ -1,0 +1,14 @@
+{
+  "kind": "prompt",
+  "id": "prompt.mp_mdmp_coaStatementAndSketch",
+  "version": 0,
+  "name": "COA Statement and Sketch",
+  "status": "published",
+  "forkedFrom": {
+    "id": "prompt.mp_mdmp_base",
+    "version": 0
+  },
+  "overrides": {
+    "objective": "[MDMP — COA Development / COA Statement and Sketch]\nProduce the COA statement and sketch narrative describing the selected approach at concept level.\nPopulate display_text with human-readable narrative for the UI.\nAll structured claims must include evidence_refs citing CIT-#### IDs."
+  }
+}

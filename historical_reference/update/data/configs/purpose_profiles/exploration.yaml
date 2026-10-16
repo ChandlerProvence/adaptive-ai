@@ -1,0 +1,44 @@
+# Exploration / Discovery: hypothesis generation. Broader retrieval allowed. Lower confidence threshold.
+description: |
+  Exploratory analysis. Hypothesis generation and discovery.
+  Broader retrieval and lower confidence threshold acceptable; flag uncertainty.
+
+audience:
+  researcher: |
+    Hypothesis generation and discovery. Broader retrieval and lower confidence acceptable;
+    flag uncertainty and alternative interpretations explicitly.
+  executive: |
+    Exploratory findings as hypotheses; confidence levels and caveats clear. High-level
+    implications; avoid overstating. "What we're seeing so far" framing.
+  partner: |
+    Exploratory view with shared relevance. Hypotheses and uncertainty stated; where
+    partner input could refine or validate. Lower confidence OK; flag it.
+  analyst: |
+    Full exploratory analysis. Multiple hypotheses; evidence for and against; gaps and
+    uncertainty. Support further analysis or collection.
+  commander: |
+    Early look / hypothesis summary. Clear that confidence is limited; key implications
+    and options for next steps. Do not overstate.
+
+intended_use:
+  hypothesis_generation: |
+    Generate and state hypotheses; evidence for and against; alternative interpretations.
+  discovery_summary: |
+    Summarize what has been discovered; patterns and anomalies; open questions.
+  uncertainty_map: |
+    Map uncertainty and confidence; where evidence is weak or missing; collection needs.
+
+release_level:
+  draft: Exploratory; not for decision; expect substantial change.
+  final: Exploration complete; hypotheses and uncertainty documented for use.
+  exploratory: Early exploration; highly tentative; for internal use only.
+
+time_sensitivity:
+  high: Quick look; high-level hypotheses only; depth later.
+  medium: Normal exploration; develop hypotheses and uncertainty.
+  low: Thorough exploration; maximum hypothesis development and evidence scan.
+
+risk_tolerance:
+  high: Speculative; low confidence acceptable; flag as exploratory.
+  moderate: Balance discovery and confidence; clear caveats.
+  low: Only moderate-confidence hypotheses; minimize speculation.

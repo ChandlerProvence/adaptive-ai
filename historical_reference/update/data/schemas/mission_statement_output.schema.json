@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MissionStatementOutput",
+  "description": "Output of mission-statement generation from a document.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["mission_statement"],
+  "properties": {
+    "mission_statement": { "type": "string" },
+    "aoi": { "type": "string" },
+    "aor": { "type": "string" }
+  }
+}

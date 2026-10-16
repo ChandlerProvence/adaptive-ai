@@ -1,0 +1,17 @@
+---
+# LiteLLM proxy (Leidos) - use env for secrets
+name: default
+is_default: true
+base_url: "https://litellm.iho.leidos.com/v1"
+api_key: sk-Balx5F7vsqeaxIjk75W9BA
+api_key_header: x-litellm-api-key
+model: "llama3.3:70b-agent"
+temperature: 0.2
+---
+name: "backup"
+api_key: "another-key"
+base_url: "https://backup.example.com/v1"
+model: "gpt-4"
+temperature: 0.3
+is_default: false
+

@@ -1,0 +1,15 @@
+{
+  "kind": "purpose",
+  "id": "purpose.mp_execution_support",
+  "version": 0,
+  "name": "Execution Support",
+  "status": "published",
+  "body": {
+    "summary": "Support execution with concrete tasking, phasing, and timing.\nEmphasize operational constraints and feasibility.\n\nPhasing, key decision points, and resource/timing constraints. Actionable orders;\nemphasize feasibility and risk at each phase.",
+    "audience": "Commander",
+    "tone": "Analytical",
+    "evidenceRequirement": "Cite supplied evidence for every claim. Mark insufficient evidence explicitly. Use citation ids in the form CIT-0001.",
+    "riskTolerance": "Moderate",
+    "detail": "High"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "kind": "prompt",
+  "id": "prompt.mp_mdmp_identifiedTasks",
+  "version": 0,
+  "name": "Identified Tasks",
+  "status": "published",
+  "forkedFrom": {
+    "id": "prompt.mp_mdmp_base",
+    "version": 0
+  },
+  "overrides": {
+    "objective": "[MDMP — Mission Analysis / Identified Tasks]\nIdentify specified, implied, and essential tasks from the mission and higher guidance.\nPopulate display_text with human-readable narrative for the UI.\nAll structured claims must include evidence_refs citing CIT-#### IDs."
+  }
+}

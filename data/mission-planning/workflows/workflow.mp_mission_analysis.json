@@ -1,0 +1,167 @@
+{
+  "kind": "workflow",
+  "id": "workflow.mp_mission_analysis",
+  "version": 0,
+  "name": "Mission Analysis",
+  "status": "published",
+  "body": {
+    "defaults": {
+      "llm": {
+        "id": "llm.gpt_4o",
+        "version": 0
+      },
+      "purpose": {
+        "id": "purpose.mp_planning",
+        "version": 0
+      },
+      "evidenceRequirement": "Cite supplied evidence. Mark insufficient evidence explicitly.",
+      "detail": "High"
+    },
+    "nodes": [
+      {
+        "id": "higher_hq_analysis",
+        "title": "Analysis of Higher HQ Mission",
+        "executable": true,
+        "task": {
+          "id": "task.mp_higherHqAnalysis",
+          "version": 0
+        },
+        "dependencies": [],
+        "upstream": [
+          {
+            "workflow": {
+              "id": "workflow.mp_receive",
+              "version": 0
+            },
+            "nodeId": "current_environment"
+          }
+        ]
+      },
+      {
+        "id": "mission_statement",
+        "title": "Mission Statement",
+        "executable": true,
+        "task": {
+          "id": "task.mp_mission_statement_generation",
+          "version": 0
+        },
+        "dependencies": [
+          "higher_hq_analysis"
+        ],
+        "upstream": [
+          {
+            "workflow": {
+              "id": "workflow.mp_receive",
+              "version": 0
+            },
+            "nodeId": "running_estimate"
+          }
+        ],
+        "inserts": [
+          {
+            "id": "insert.mp_narrative_analysis",
+            "version": 0
+          },
+          {
+            "id": "insert.mp_assumptions",
+            "version": 0
+          },
+          {
+            "id": "insert.mp_assumption_analysis",
+            "version": 0
+          }
+        ]
+      },
+      {
+        "id": "intelligence_preparation",
+        "title": "Intelligence Preparation",
+        "executable": true,
+        "task": {
+          "id": "task.mp_intelligencePreparation",
+          "version": 0
+        },
+        "dependencies": [],
+        "upstream": [
+          {
+            "workflow": {
+              "id": "workflow.mp_receive",
+              "version": 0
+            },
+            "nodeId": "current_environment"
+          }
+        ],
+        "inserts": [
+          {
+            "id": "insert.mp_correlation",
+            "version": 0
+          }
+        ]
+      },
+      {
+        "id": "correlation_of_forces",
+        "title": "Correlation of Forces and Means",
+        "executable": true,
+        "task": {
+          "id": "task.mp_cbtPower",
+          "version": 0
+        },
+        "dependencies": [
+          "intelligence_preparation"
+        ],
+        "upstream": [
+          {
+            "workflow": {
+              "id": "workflow.mp_receive",
+              "version": 0
+            },
+            "nodeId": "running_estimate"
+          }
+        ]
+      },
+      {
+        "id": "identified_tasks",
+        "title": "Identified Tasks",
+        "executable": true,
+        "task": {
+          "id": "task.mp_identifiedTasks",
+          "version": 0
+        },
+        "dependencies": [
+          "higher_hq_analysis",
+          "mission_statement"
+        ]
+      },
+      {
+        "id": "intent_and_guidance",
+        "title": "Commander's Intent and Planning Guidance",
+        "executable": true,
+        "task": {
+          "id": "task.mp_intentAndGuidance",
+          "version": 0
+        },
+        "dependencies": [
+          "higher_hq_analysis"
+        ],
+        "inserts": [
+          {
+            "id": "insert.mp_narrative_analysis",
+            "version": 0
+          }
+        ]
+      },
+      {
+        "id": "priorities",
+        "title": "Priorities",
+        "executable": true,
+        "task": {
+          "id": "task.mp_priorities",
+          "version": 0
+        },
+        "dependencies": [
+          "intent_and_guidance",
+          "identified_tasks"
+        ]
+      }
+    ]
+  }
+}

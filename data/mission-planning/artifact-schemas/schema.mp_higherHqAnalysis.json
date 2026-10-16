@@ -1,0 +1,15 @@
+{
+  "kind": "artifact_schema",
+  "id": "schema.mp_higherHqAnalysis",
+  "version": 0,
+  "name": "Higher HQ Analysis",
+  "status": "published",
+  "body": {
+    "summary": "MDMP artifact for Higher HQ Analysis (Mission Analysis).",
+    "requiredSections": [
+      "display_text",
+      "guidance_items"
+    ],
+    "sourceFile": "historical_reference/update/data/schemas/higherHqAnalysis.schema.json"
+  }
+}

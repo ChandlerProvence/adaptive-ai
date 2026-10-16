@@ -1,0 +1,15 @@
+{
+  "kind": "artifact_schema",
+  "id": "schema.mp_selection",
+  "version": 0,
+  "name": "Selection",
+  "status": "published",
+  "body": {
+    "summary": "MDMP artifact for Selection (COA Comparison).",
+    "requiredSections": [
+      "display_text",
+      "criteria"
+    ],
+    "sourceFile": "historical_reference/update/data/schemas/selection.schema.json"
+  }
+}

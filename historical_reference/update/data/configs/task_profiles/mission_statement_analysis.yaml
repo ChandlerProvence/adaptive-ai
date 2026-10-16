@@ -1,0 +1,36 @@
+# Mission Statement Analysis — mission-agnostic; analyzes mission statements for quality and completeness.
+
+task_id: mission_statement_analysis
+name: "Mission Statement Analysis"
+
+artifact:
+  artifact_type: MISSION_STATEMENT_ANALYSIS
+  schema_ref: mission_statement_analysis.schema.json
+
+retrieval:
+  mode: doc_file
+  # doc_path passed at runtime from input
+
+# Use graph-based prompt system with default template
+prompt_template: "default.yaml"
+
+failure_behavior:
+  on_validation_failure:
+    save_partial: true
+    save_raw_response: true
+    exit_code: 1
+    message: "Mission statement analysis output failed schema validation; partial outputs saved."
+  on_llm_error:
+    exit_code: 2
+    message: "LiteLLM API error. Ensure VPN is connected if required."
+  on_parse_error:
+    save_partial: true
+    save_raw_response: true
+    exit_code: 2
+    message: "Could not extract valid JSON from LLM response."
+
+description: |
+  Analyze mission statements for clarity, completeness, specificity, and alignment with
+  operational requirements. Assess whether the mission statement contains all necessary
+  elements (who, what, where, when, why, how). Identify gaps, ambiguities, and areas for improvement.
+  All analysis must cite evidence sources.

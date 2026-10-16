@@ -1,0 +1,14 @@
+{
+  "kind": "prompt",
+  "id": "prompt.mp_mdmp_wargamingMethod",
+  "version": 0,
+  "name": "Wargaming Method",
+  "status": "published",
+  "forkedFrom": {
+    "id": "prompt.mp_mdmp_base",
+    "version": 0
+  },
+  "overrides": {
+    "objective": "[MDMP — COA Analysis / Wargaming Method]\nDefine the wargaming method, sequence, and evaluation framework.\nPopulate display_text with human-readable narrative for the UI.\nAll structured claims must include evidence_refs citing CIT-#### IDs."
+  }
+}

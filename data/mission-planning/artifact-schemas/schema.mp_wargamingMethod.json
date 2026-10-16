@@ -1,0 +1,15 @@
+{
+  "kind": "artifact_schema",
+  "id": "schema.mp_wargamingMethod",
+  "version": 0,
+  "name": "Wargaming Method",
+  "status": "published",
+  "body": {
+    "summary": "MDMP artifact for Wargaming Method (COA Analysis).",
+    "requiredSections": [
+      "display_text",
+      "assessments"
+    ],
+    "sourceFile": "historical_reference/update/data/schemas/wargamingMethod.schema.json"
+  }
+}

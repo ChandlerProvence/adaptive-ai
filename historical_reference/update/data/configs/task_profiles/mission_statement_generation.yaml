@@ -1,0 +1,27 @@
+# Mission statement generation — internal task; doc path passed at runtime from input.
+
+task_id: mission_statement_generation
+name: "Mission Statement Generation"
+
+artifact:
+  artifact_type: MISSION_STATEMENT_OUTPUT
+  schema_ref: mission_statement_output.schema.json
+
+retrieval:
+  mode: doc_file
+
+# Use custom prompt template (mission doesn't have mission_statement yet)
+prompt_template: "mission_statement_generation.yaml"
+
+failure_behavior:
+  on_validation_failure:
+    message: "Mission statement output failed schema validation."
+  on_llm_error:
+    message: "LiteLLM API error during mission statement generation."
+  on_parse_error:
+    message: "Could not extract valid JSON from mission statement response."
+
+description: |
+  Produce one concise mission statement (and optionally aoi/aor if absent in mission context)
+  from the provided document. Output must be valid JSON with required mission_statement
+  and optional aoi, aor strings. Tone and audience come from the purpose profile.

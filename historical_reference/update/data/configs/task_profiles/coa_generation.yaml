@@ -1,0 +1,60 @@
+# COA Generation — mission-agnostic; combines with mission + purpose at runtime.
+
+task_id: coa_generation
+name: "COA Generation"
+
+# Artifact: type, schema, persistence (path_template, retention) — extend when needed.
+artifact:
+  artifact_type: COA_PACKAGE
+  schema_ref: coa_package.schema.json
+
+# Citation policy: format, minimums, required_per_claim, required_sections — TBD.
+# citation_policy: {}
+
+# Tool policy: allowed_tools, disallowed_actions, approval_gates — TBD.
+# tool_policy: {}
+
+retrieval:
+  mode: fixture
+  fixture_file: gateway_search_response.miso.coa.generation.json
+# chromadb: chromadb_collection, top_k. See configs/storage.yaml.
+
+# Prompt/formatting constraints (task-owned; purpose refines) — TBD.
+# prompt_constraints: {}
+
+# Use graph-based prompt system with COA-specific template
+prompt_template: "coa_generation.yaml"
+
+output_overrides:
+  max_coas: 3
+  executive_summary_bullets: 3
+
+# Quality gates: schema_validation strictness, retry strategy, success_criteria — TBD.
+# quality_gates: {}
+
+# Logging/telemetry: what to log for replayability — TBD.
+# logging: {}
+
+# Success metrics: schema_compliance, citation_coverage, thresholds — TBD.
+# success_metrics: {}
+
+failure_behavior:
+  on_validation_failure:
+    save_partial: true
+    save_raw_response: true
+    exit_code: 1
+    message: "Artifact failed schema validation; partial outputs saved."
+  on_llm_error:
+    exit_code: 2
+    message: "LiteLLM API error. Ensure VPN is connected if required."
+  on_parse_error:
+    save_partial: true
+    save_raw_response: true
+    exit_code: 2
+    message: "Could not extract valid JSON from LLM response."
+
+description: |
+  Generate a Course of Action (COA) package for the given mission context.
+  The package must include an executive summary and multiple COAs (phasing, tasks, 
+  risks/mitigations, assessment hooks), each supported by evidence from the provided sources. 
+  All claims must cite evidence.

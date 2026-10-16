@@ -1,0 +1,36 @@
+# Assumption Analysis — mission-agnostic; identifies and analyzes assumptions.
+
+task_id: assumption_analysis
+name: "Assumption Analysis"
+
+artifact:
+  artifact_type: ASSUMPTION_ANALYSIS
+  schema_ref: assumption_analysis.schema.json
+
+retrieval:
+  mode: doc_file
+  # doc_path passed at runtime from input
+
+# Use graph-based prompt system with default template
+prompt_template: "default.yaml"
+
+failure_behavior:
+  on_validation_failure:
+    save_partial: true
+    save_raw_response: true
+    exit_code: 1
+    message: "Assumption analysis output failed schema validation; partial outputs saved."
+  on_llm_error:
+    exit_code: 2
+    message: "LiteLLM API error. Ensure VPN is connected if required."
+  on_parse_error:
+    save_partial: true
+    save_raw_response: true
+    exit_code: 2
+    message: "Could not extract valid JSON from LLM response."
+
+description: |
+  Identify and analyze assumptions underlying the mission or operational plan.
+  Categorize assumptions by type (factual, predictive, normative), assess their validity,
+  identify risks if assumptions prove false, and suggest validation strategies.
+  All assumptions must be traceable to evidence sources.

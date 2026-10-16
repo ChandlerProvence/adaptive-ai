@@ -1,0 +1,16 @@
+{
+  "kind": "artifact_schema",
+  "id": "schema.mp_coaOptions",
+  "version": 0,
+  "name": "COA Options",
+  "status": "published",
+  "body": {
+    "summary": "MDMP COA options package with UI narrative.",
+    "requiredSections": [
+      "display_text",
+      "courses_of_action",
+      "executive_summary"
+    ],
+    "sourceFile": "historical_reference/update/data/schemas/coaOptions.schema.json"
+  }
+}

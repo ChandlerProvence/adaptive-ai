@@ -1,0 +1,27 @@
+# MDMP — COA Comparison / Updated Assumptions
+
+task_id: updatedAssumptions
+name: "MDMP Updated Assumptions"
+
+artifact:
+  artifact_type: UPDATED_ASSUMPTIONS
+  schema_ref: updatedAssumptions.schema.json
+
+retrieval:
+  mode: doc_file
+
+prompt_template: "mdmp_updatedAssumptions.yaml"
+
+failure_behavior:
+  on_validation_failure:
+    message: "MDMP output failed schema validation."
+  on_llm_error:
+    message: "LLM API error during MDMP task execution."
+  on_parse_error:
+    message: "Could not extract valid JSON from MDMP response."
+
+description: |
+  [MDMP — COA Comparison / Updated Assumptions]
+  Update planning assumptions based on wargaming and COA comparison outcomes.
+  Populate display_text with human-readable narrative for the UI.
+  All structured claims must include evidence_refs citing CIT-#### IDs.

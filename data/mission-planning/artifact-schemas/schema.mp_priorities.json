@@ -1,0 +1,15 @@
+{
+  "kind": "artifact_schema",
+  "id": "schema.mp_priorities",
+  "version": 0,
+  "name": "Priorities",
+  "status": "published",
+  "body": {
+    "summary": "MDMP artifact for Priorities (Mission Analysis).",
+    "requiredSections": [
+      "display_text",
+      "items"
+    ],
+    "sourceFile": "historical_reference/update/data/schemas/priorities.schema.json"
+  }
+}

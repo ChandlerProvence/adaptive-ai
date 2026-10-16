@@ -1,0 +1,25 @@
+---
+name: Test Workflow 1
+description: Testing load
+is_active: t
+phases:
+  - name: gen statement
+    task_id: mission_statement_generation
+    purpose_id: planning
+  - task_id: constraints_extraction
+    purpose_id: planning
+  - task_id: operational_analysis
+    purpose_id: planning
+  - task_id: coa_generation
+    purpose_id: decision_support
+---
+name: Test Workflow 2
+is_active: f
+phases:
+  - name: gen statement
+    task_id: mission_statement_generation
+    purpose_id: planning
+  - task_id: constraints_extraction
+    purpose_id: planning
+  - task_id: operational_analysis
+    purpose_id: planning

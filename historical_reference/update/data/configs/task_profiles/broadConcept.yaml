@@ -1,0 +1,27 @@
+# MDMP — COA Development / Broad Concept
+
+task_id: broadConcept
+name: "MDMP Broad Concept"
+
+artifact:
+  artifact_type: BROAD_CONCEPT
+  schema_ref: broadConcept.schema.json
+
+retrieval:
+  mode: doc_file
+
+prompt_template: "mdmp_broadConcept.yaml"
+
+failure_behavior:
+  on_validation_failure:
+    message: "MDMP output failed schema validation."
+  on_llm_error:
+    message: "LLM API error during MDMP task execution."
+  on_parse_error:
+    message: "Could not extract valid JSON from MDMP response."
+
+description: |
+  [MDMP — COA Development / Broad Concept]
+  Articulate the broad operational concept tying mission, intent, and proposed approach.
+  Populate display_text with human-readable narrative for the UI.
+  All structured claims must include evidence_refs citing CIT-#### IDs.

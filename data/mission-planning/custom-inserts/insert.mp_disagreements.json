@@ -1,0 +1,20 @@
+{
+  "kind": "custom_insert",
+  "id": "insert.mp_disagreements",
+  "version": 0,
+  "name": "Disagreements",
+  "status": "published",
+  "body": {
+    "category": "validation",
+    "executionMode": "post",
+    "summary": "[MDMP — COA Comparison / Disagreements]\nRecord staff disagreements, dissenting views, and unresolved issues for commander decision.\nPopulate display_text with human-readable narrative for the UI.\nAll structured claims must include evidence_refs citing CIT-#### IDs.",
+    "prompt": {
+      "id": "prompt.mp_mdmp_base",
+      "version": 0
+    },
+    "artifactSchema": {
+      "id": "schema.mp_disagreements",
+      "version": 0
+    }
+  }
+}

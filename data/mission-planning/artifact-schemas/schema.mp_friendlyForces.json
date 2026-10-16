@@ -1,0 +1,15 @@
+{
+  "kind": "artifact_schema",
+  "id": "schema.mp_friendlyForces",
+  "version": 0,
+  "name": "Friendly Forces",
+  "status": "published",
+  "body": {
+    "summary": "MDMP artifact for Friendly Forces (COA Analysis).",
+    "requiredSections": [
+      "display_text",
+      "units"
+    ],
+    "sourceFile": "historical_reference/update/data/schemas/friendlyForces.schema.json"
+  }
+}

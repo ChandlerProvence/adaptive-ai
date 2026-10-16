@@ -1,0 +1,15 @@
+{
+  "kind": "artifact_schema",
+  "id": "schema.mp_disagreements",
+  "version": 0,
+  "name": "Disagreements",
+  "status": "published",
+  "body": {
+    "summary": "MDMP artifact for Disagreements (COA Comparison).",
+    "requiredSections": [
+      "display_text",
+      "items"
+    ],
+    "sourceFile": "historical_reference/update/data/schemas/disagreements.schema.json"
+  }
+}

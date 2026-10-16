@@ -1,0 +1,23 @@
+{
+  "kind": "task",
+  "id": "task.mp_mission_statement_generation",
+  "version": 0,
+  "name": "Mission Statement",
+  "status": "published",
+  "body": {
+    "summary": "Produce one concise mission statement (and optionally aoi/aor if absent in mission context)\nfrom the provided document. Output must be valid JSON with required mission_statement\nand optional aoi, aor strings. Tone and audience come from the purpose profile.",
+    "prompt": {
+      "id": "prompt.mp_mdmp_mission_statement_generation",
+      "version": 0
+    },
+    "artifactSchema": {
+      "id": "schema.mp_mission_statement_generation",
+      "version": 0
+    },
+    "llm": {
+      "id": "llm.gpt_4o",
+      "version": 0
+    },
+    "requiredInputs": []
+  }
+}

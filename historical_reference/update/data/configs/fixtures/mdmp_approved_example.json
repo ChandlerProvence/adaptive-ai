@@ -1,0 +1,21 @@
+{
+  "artifact_type": "BROAD_CONCEPT",
+  "schema_version": "1.0.0",
+  "context": {
+    "mission_id": "example-mission",
+    "mission_type": "MISO",
+    "organization_id": "ORG-1",
+    "team_id": "TEAM-1",
+    "aoi": "AOI-EXAMPLE",
+    "time_window": "P30D",
+    "task_id": "example-task",
+    "purpose_id": "planning"
+  },
+  "display_text": "Example narrative for UI display.",
+  "citations": [],
+  "approved_content": {
+    "statement": "Approved statement example for fixture validation.",
+    "sketch_notes": "Sketch notes optional",
+    "evidence_refs": []
+  }
+}

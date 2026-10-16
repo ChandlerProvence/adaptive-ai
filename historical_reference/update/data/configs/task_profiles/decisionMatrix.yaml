@@ -1,0 +1,27 @@
+# MDMP — COA Comparison / Decision Matrix
+
+task_id: decisionMatrix
+name: "MDMP Decision Matrix"
+
+artifact:
+  artifact_type: DECISION_MATRIX
+  schema_ref: decisionMatrix.schema.json
+
+retrieval:
+  mode: doc_file
+
+prompt_template: "mdmp_decisionMatrix.yaml"
+
+failure_behavior:
+  on_validation_failure:
+    message: "MDMP output failed schema validation."
+  on_llm_error:
+    message: "LLM API error during MDMP task execution."
+  on_parse_error:
+    message: "Could not extract valid JSON from MDMP response."
+
+description: |
+  [MDMP — COA Comparison / Decision Matrix]
+  Build a decision matrix scoring each COA against criteria.
+  Populate display_text with human-readable narrative for the UI.
+  All structured claims must include evidence_refs citing CIT-#### IDs.

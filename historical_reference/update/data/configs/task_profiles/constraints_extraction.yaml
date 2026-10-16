@@ -1,0 +1,36 @@
+# Constraints Extraction — mission-agnostic; extracts constraints from documents/evidence.
+
+task_id: constraints_extraction
+name: "Constraints Extraction"
+
+artifact:
+  artifact_type: CONSTRAINTS_EXTRACTION
+  schema_ref: constraints_extraction.schema.json
+
+retrieval:
+  mode: doc_file
+  # doc_path passed at runtime from input
+
+# Use graph-based prompt system with default template
+prompt_template: "default.yaml"
+
+failure_behavior:
+  on_validation_failure:
+    save_partial: true
+    save_raw_response: true
+    exit_code: 1
+    message: "Constraints extraction output failed schema validation; partial outputs saved."
+  on_llm_error:
+    exit_code: 2
+    message: "LiteLLM API error. Ensure VPN is connected if required."
+  on_parse_error:
+    save_partial: true
+    save_raw_response: true
+    exit_code: 2
+    message: "Could not extract valid JSON from LLM response."
+
+description: |
+  Extract operational constraints from the provided document or evidence.
+  Identify resource limitations, time constraints, legal/policy restrictions, 
+  environmental factors, and other constraints that affect mission execution.
+  All constraints must be traceable to specific evidence sources.

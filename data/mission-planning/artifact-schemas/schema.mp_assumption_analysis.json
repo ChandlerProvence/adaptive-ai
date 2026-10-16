@@ -1,0 +1,14 @@
+{
+  "kind": "artifact_schema",
+  "id": "schema.mp_assumption_analysis",
+  "version": 0,
+  "name": "Assumption Analysis",
+  "status": "published",
+  "body": {
+    "summary": "Assumption analysis with evidence citations.",
+    "requiredSections": [
+      "assumptions"
+    ],
+    "sourceFile": "historical_reference/update/data/schemas/assumption_analysis.schema.json"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "kind": "purpose",
+  "id": "purpose.mp_planning",
+  "version": 0,
+  "name": "Planning",
+  "status": "published",
+  "body": {
+    "summary": "Forward-looking planning. Emphasize options, alternatives, and explicit assumptions.\nMultiple COAs encouraged; do not collapse to a single recommendation.\n\nOptions-focused; state assumptions explicitly. Include risk and resource implications\nfor each option. Do not recommend a single COA—support commander decision.",
+    "audience": "Commander",
+    "tone": "Analytical",
+    "evidenceRequirement": "Cite supplied evidence for every claim. Mark insufficient evidence explicitly. Use citation ids in the form CIT-0001.",
+    "riskTolerance": "Moderate",
+    "detail": "High"
+  }
+}

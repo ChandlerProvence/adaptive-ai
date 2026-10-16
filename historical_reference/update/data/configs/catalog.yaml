@@ -1,0 +1,208 @@
+# IMP Catalog: registry linking tasks and purposes to configs.
+# Missions are loaded from JSON (see missions_source); catalog does not duplicate mission data.
+name: "production"
+version: "1.0"
+description: "Mission/task/purpose registry for Intelligence Mission Planning"
+is_default: true
+
+# Directory (relative to configs/) containing mission JSON files. Each file must include
+# mission_id, mission_type, mission_statement, aoi/aor, time_window, organization_id, team_id.
+missions_source: missions
+
+# [PROVENCEC] Optional: mission types recognized for validation. Missions in JSON can use any type.
+mission_types:
+  - MISO
+  - PA
+  - CA
+  - Cyber
+  - EW
+  - Space
+
+# Tasks define WHAT is done. Mission-agnostic; combined with mission + purpose at runtime.
+# Same task (e.g. coa_generation) can be run under any mission (MISO, PA, Cyber, etc.).
+tasks:
+  coa_generation:
+    task_name: "COA Generation"  # Explicit name to handle acronym
+    profile: task_profiles/coa_generation.yaml
+    artifact_type: COA_PACKAGE
+  mission_statement_generation:
+    task_name: "Mission Statement Generation"
+    profile: task_profiles/mission_statement_generation.yaml
+    artifact_type: MISSION_STATEMENT_OUTPUT
+  constraints_extraction:
+    task_name: "Constraints Extraction"
+    profile: task_profiles/constraints_extraction.yaml
+    artifact_type: CONSTRAINTS_EXTRACTION
+  operational_analysis:
+    task_name: "Operational Analysis"
+    profile: task_profiles/operational_analysis.yaml
+    artifact_type: OPERATIONAL_ANALYSIS
+  assumption_analysis:
+    task_name: "Assumption Analysis"
+    profile: task_profiles/assumption_analysis.yaml
+    artifact_type: ASSUMPTION_ANALYSIS
+  commanders_intent_extraction:
+    task_name: "Commander's Intent Extraction"  # Explicit name to handle possessive
+    profile: task_profiles/commanders_intent_extraction.yaml
+    artifact_type: COMMANDERS_INTENT
+  narrative_analysis:
+    task_name: "Narrative Analysis"
+    profile: task_profiles/narrative_analysis.yaml
+    artifact_type: NARRATIVE_ANALYSIS
+  mission_statement_analysis:
+    task_name: "Mission Statement Analysis"
+    profile: task_profiles/mission_statement_analysis.yaml
+    artifact_type: MISSION_STATEMENT_ANALYSIS
+
+  # ---------------------------------------------------------------------------
+  # UI tasks
+  # Slot name = POST /run/?task_id=<slot>
+  # UI narrative field: artifact.display_text
+  # ---------------------------------------------------------------------------
+
+  # Mission Receive
+  currentEnvironment:
+    task_name: "MDMP Current Environment"
+    profile: task_profiles/currentEnvironment.yaml
+    artifact_type: CURRENT_ENVIRONMENT
+
+  # Mission Analysis
+  assumptions:
+    task_name: "MDMP Assumptions"
+    profile: task_profiles/assumptions.yaml
+    artifact_type: ASSUMPTIONS
+  higherHqAnalysis:
+    task_name: "MDMP Higher HQ Analysis"
+    profile: task_profiles/higherHqAnalysis.yaml
+    artifact_type: HIGHER_HQ_ANALYSIS
+  intelligencePreparation:
+    task_name: "MDMP Intelligence Preparation"
+    profile: task_profiles/intelligencePreparation.yaml
+    artifact_type: INTELLIGENCE_PREPARATION
+  correlation:
+    task_name: "MDMP Correlation"
+    profile: task_profiles/correlation.yaml
+    artifact_type: CORRELATION
+  identifiedTasks:
+    task_name: "MDMP Identified Tasks"
+    profile: task_profiles/identifiedTasks.yaml
+    artifact_type: IDENTIFIED_TASKS
+  intentAndGuidance:
+    task_name: "MDMP Intent and Guidance"
+    profile: task_profiles/intentAndGuidance.yaml
+    artifact_type: INTENT_AND_GUIDANCE
+  priorities:
+    task_name: "MDMP Priorities"
+    profile: task_profiles/priorities.yaml
+    artifact_type: PRIORITIES
+
+  # COA Development
+  cbtPower:
+    task_name: "MDMP Combat Power"
+    profile: task_profiles/cbtPower.yaml
+    artifact_type: CBT_POWER
+  coaOptions:
+    task_name: "MDMP COA Options"
+    profile: task_profiles/coaOptions.yaml
+    artifact_type: COA_OPTIONS
+  coa1:
+    task_name: "MDMP COA 1"
+    profile: task_profiles/coa1.yaml
+    artifact_type: COA_1
+  coa2:
+    task_name: "MDMP COA 2"
+    profile: task_profiles/coa2.yaml
+    artifact_type: COA_2
+  coa3:
+    task_name: "MDMP COA 3"
+    profile: task_profiles/coa3.yaml
+    artifact_type: COA_3
+  initialForces:
+    task_name: "MDMP Initial Forces"
+    profile: task_profiles/initialForces.yaml
+    artifact_type: INITIAL_FORCES
+  broadConcept:
+    task_name: "MDMP Broad Concept"
+    profile: task_profiles/broadConcept.yaml
+    artifact_type: BROAD_CONCEPT
+  assignHQs:
+    task_name: "MDMP Assign HQs"
+    profile: task_profiles/assignHQs.yaml
+    artifact_type: ASSIGN_HQS
+  coaStatementAndSketch:
+    task_name: "MDMP COA Statement and Sketch"
+    profile: task_profiles/coaStatementAndSketch.yaml
+    artifact_type: COA_STATEMENT_AND_SKETCH
+
+  # COA Analysis
+  friendlyForces:
+    task_name: "MDMP Friendly Forces"
+    profile: task_profiles/friendlyForces.yaml
+    artifact_type: FRIENDLY_FORCES
+  coaAssumptions:
+    task_name: "MDMP COA Assumptions"
+    profile: task_profiles/coaAssumptions.yaml
+    artifact_type: COA_ASSUMPTIONS
+  wargamingMethod:
+    task_name: "MDMP Wargaming Method"
+    profile: task_profiles/wargamingMethod.yaml
+    artifact_type: WARGAMING_METHOD
+  wargamingAssessment:
+    task_name: "MDMP Wargaming Assessment"
+    profile: task_profiles/wargamingAssessment.yaml
+    artifact_type: WARGAMING_ASSESSMENT
+
+  # COA Comparison
+  evaluationCriteria:
+    task_name: "MDMP Evaluation Criteria"
+    profile: task_profiles/evaluationCriteria.yaml
+    artifact_type: EVALUATION_CRITERIA
+  compareCoas:
+    task_name: "MDMP Compare COAs"
+    profile: task_profiles/compareCoas.yaml
+    artifact_type: COMPARE_COAS
+  decisionMatrix:
+    task_name: "MDMP Decision Matrix"
+    profile: task_profiles/decisionMatrix.yaml
+    artifact_type: DECISION_MATRIX
+  selection:
+    task_name: "MDMP Selection"
+    profile: task_profiles/selection.yaml
+    artifact_type: SELECTION
+  approvedCdrIntent:
+    task_name: "MDMP Approved Commander Intent"
+    profile: task_profiles/approvedCdrIntent.yaml
+    artifact_type: APPROVED_CDR_INTENT
+  approvedMissionStatement:
+    task_name: "MDMP Approved Mission Statement"
+    profile: task_profiles/approvedMissionStatement.yaml
+    artifact_type: APPROVED_MISSION_STATEMENT
+  updatedAssumptions:
+    task_name: "MDMP Updated Assumptions"
+    profile: task_profiles/updatedAssumptions.yaml
+    artifact_type: UPDATED_ASSUMPTIONS
+  runningEstimate:
+    task_name: "MDMP Running Estimate"
+    profile: task_profiles/runningEstimate.yaml
+    artifact_type: RUNNING_ESTIMATE
+  disagreements:
+    task_name: "MDMP Disagreements"
+    profile: task_profiles/disagreements.yaml
+    artifact_type: DISAGREEMENTS
+# Purposes define WHY something is done. Cross-mission; not tailored per mission or task.
+# Same purpose_id can be used with any task. Profile holds version, description, audience,
+# intended_use, release_level, time_sensitivity, risk_tolerance, format_preference.
+purposes:
+  planning:
+    profile: purpose_profiles/planning.yaml
+    is_default: true
+  decision_support:
+    profile: purpose_profiles/decision_support.yaml
+  execution_support:
+    profile: purpose_profiles/execution_support.yaml
+  assessment:
+    profile: purpose_profiles/assessment.yaml
+  briefing:
+    profile: purpose_profiles/briefing.yaml
+  exploration:
+    profile: purpose_profiles/exploration.yaml

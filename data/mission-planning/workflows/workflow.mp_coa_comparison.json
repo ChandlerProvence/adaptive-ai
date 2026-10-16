@@ -1,0 +1,106 @@
+{
+  "kind": "workflow",
+  "id": "workflow.mp_coa_comparison",
+  "version": 0,
+  "name": "COA Comparison",
+  "status": "published",
+  "body": {
+    "defaults": {
+      "llm": {
+        "id": "llm.gpt_4o",
+        "version": 0
+      },
+      "purpose": {
+        "id": "purpose.mp_decision_support",
+        "version": 0
+      },
+      "evidenceRequirement": "Cite supplied evidence. Mark insufficient evidence explicitly.",
+      "detail": "High"
+    },
+    "nodes": [
+      {
+        "id": "evaluation_criteria",
+        "title": "Evaluation Criteria",
+        "executable": true,
+        "task": {
+          "id": "task.mp_evaluationCriteria",
+          "version": 0
+        },
+        "dependencies": [],
+        "upstream": [
+          {
+            "workflow": {
+              "id": "workflow.mp_mission_analysis",
+              "version": 0
+            },
+            "nodeId": "intent_and_guidance"
+          }
+        ]
+      },
+      {
+        "id": "compare_coas",
+        "title": "Compare COAs",
+        "executable": true,
+        "task": {
+          "id": "task.mp_compareCoas",
+          "version": 0
+        },
+        "dependencies": [
+          "evaluation_criteria"
+        ],
+        "upstream": [
+          {
+            "workflow": {
+              "id": "workflow.mp_coa_development",
+              "version": 0
+            },
+            "nodeId": "coa_options"
+          },
+          {
+            "workflow": {
+              "id": "workflow.mp_coa_analysis",
+              "version": 0
+            },
+            "nodeId": "wargaming_assessment"
+          }
+        ],
+        "inserts": [
+          {
+            "id": "insert.mp_disagreements",
+            "version": 0
+          }
+        ]
+      },
+      {
+        "id": "decision_matrix",
+        "title": "Decision Matrix",
+        "executable": true,
+        "task": {
+          "id": "task.mp_decisionMatrix",
+          "version": 0
+        },
+        "dependencies": [
+          "compare_coas"
+        ]
+      },
+      {
+        "id": "selection",
+        "title": "Selection",
+        "executable": true,
+        "task": {
+          "id": "task.mp_selection",
+          "version": 0
+        },
+        "dependencies": [
+          "decision_matrix"
+        ],
+        "inserts": [
+          {
+            "id": "insert.mp_disagreements",
+            "version": 0
+          }
+        ]
+      }
+    ]
+  }
+}

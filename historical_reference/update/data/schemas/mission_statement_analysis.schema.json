@@ -1,0 +1,174 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MISSION_STATEMENT_ANALYSIS",
+  "description": "Mission statement analysis with evidence citations.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_type",
+    "schema_version",
+    "context",
+    "analysis",
+    "citations"
+  ],
+  "properties": {
+    "artifact_type": {
+      "type": "string",
+      "const": "MISSION_STATEMENT_ANALYSIS"
+    },
+    "schema_version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "context": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mission_id",
+        "mission_type",
+        "organization_id",
+        "team_id",
+        "aoi",
+        "time_window",
+        "task_id",
+        "purpose_id"
+      ],
+      "properties": {
+        "mission_id": { "type": ["string", "integer"] },
+        "mission_type": { "type": "string" },
+        "organization_id": { "type": "string" },
+        "team_id": { "type": "string" },
+        "aoi": { "type": "string" },
+        "aor": { "type": "string" },
+        "time_window": { "type": "string" },
+        "task_id": { "type": "string" },
+        "purpose_id": { "type": "string" },
+        "run_id": { "type": "string" }
+      }
+    },
+    "analysis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["clarity", "completeness", "gaps", "improvements"],
+      "properties": {
+        "clarity": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["score", "assessment", "evidence_refs"],
+          "properties": {
+            "score": { "type": "string", "enum": ["high", "medium", "low"] },
+            "assessment": { "type": "string", "minLength": 10 },
+            "evidence_refs": {
+              "type": "array",
+              "minItems": 1,
+              "items": { "$ref": "#/definitions/citation_id" }
+            }
+          }
+        },
+        "completeness": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["score", "elements_present", "elements_missing", "evidence_refs"],
+          "properties": {
+            "score": { "type": "string", "enum": ["complete", "mostly_complete", "incomplete"] },
+            "elements_present": {
+              "type": "array",
+              "items": { "type": "string", "enum": ["who", "what", "where", "when", "why", "how"] }
+            },
+            "elements_missing": {
+              "type": "array",
+              "items": { "type": "string", "enum": ["who", "what", "where", "when", "why", "how"] }
+            },
+            "evidence_refs": {
+              "type": "array",
+              "minItems": 1,
+              "items": { "$ref": "#/definitions/citation_id" }
+            }
+          }
+        },
+        "gaps": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "description", "evidence_refs"],
+            "properties": {
+              "id": { "type": "string" },
+              "description": { "type": "string", "minLength": 10 },
+              "severity": { "type": "string", "enum": ["critical", "high", "medium", "low"] },
+              "evidence_refs": {
+                "type": "array",
+                "minItems": 1,
+                "items": { "$ref": "#/definitions/citation_id" }
+              }
+            }
+          }
+        },
+        "improvements": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "recommendation", "evidence_refs"],
+            "properties": {
+              "id": { "type": "string" },
+              "recommendation": { "type": "string", "minLength": 10 },
+              "priority": { "type": "string", "enum": ["high", "medium", "low"] },
+              "evidence_refs": {
+                "type": "array",
+                "minItems": 1,
+                "items": { "$ref": "#/definitions/citation_id" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "citations": {
+      "type": "array",
+      "minItems": 0,
+      "items": { "$ref": "#/definitions/citation" }
+    }
+  },
+  "definitions": {
+    "citation_id": {
+      "type": "string",
+      "pattern": "^CIT-[0-9]{4}$"
+    },
+    "citation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "citation_id",
+        "source_system",
+        "document_id",
+        "document_version",
+        "retrieval_time",
+        "range",
+        "snippet"
+      ],
+      "properties": {
+        "citation_id": { "$ref": "#/definitions/citation_id" },
+        "source_system": { "type": "string" },
+        "document_id": { "type": "string" },
+        "document_version": { "type": "string" },
+        "retrieval_time": { "type": "string", "format": "date-time" },
+        "range": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "start", "end"],
+          "properties": {
+            "type": { "type": "string", "enum": ["char", "page_line", "timecode"] },
+            "start": { "type": ["integer", "string"] },
+            "end": { "type": ["integer", "string"] },
+            "page": { "type": "integer" },
+            "line_start": { "type": "integer" },
+            "line_end": { "type": "integer" }
+          }
+        },
+        "snippet": { "type": "string", "minLength": 5, "maxLength": 1200 },
+        "canonical_uri": { "type": "string" }
+      }
+    }
+  }
+}

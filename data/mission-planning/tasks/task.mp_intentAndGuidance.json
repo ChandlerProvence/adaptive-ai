@@ -1,0 +1,23 @@
+{
+  "kind": "task",
+  "id": "task.mp_intentAndGuidance",
+  "version": 0,
+  "name": "Commander's Intent",
+  "status": "published",
+  "body": {
+    "summary": "[MDMP — Mission Analysis / Intent and Guidance]\nExtract and articulate commander intent and planning guidance relevant to this mission.\nPopulate display_text with human-readable narrative for the UI.\nAll structured claims must include evidence_refs citing CIT-#### IDs.",
+    "prompt": {
+      "id": "prompt.mp_mdmp_intentAndGuidance",
+      "version": 0
+    },
+    "artifactSchema": {
+      "id": "schema.mp_intentAndGuidance",
+      "version": 0
+    },
+    "llm": {
+      "id": "llm.gpt_4o",
+      "version": 0
+    },
+    "requiredInputs": []
+  }
+}

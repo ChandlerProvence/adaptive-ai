@@ -1,0 +1,15 @@
+{
+  "kind": "artifact_schema",
+  "id": "schema.mp_wargamingAssessment",
+  "version": 0,
+  "name": "Wargaming Assessment",
+  "status": "published",
+  "body": {
+    "summary": "MDMP artifact for Wargaming Assessment (COA Analysis).",
+    "requiredSections": [
+      "display_text",
+      "assessments"
+    ],
+    "sourceFile": "historical_reference/update/data/schemas/wargamingAssessment.schema.json"
+  }
+}

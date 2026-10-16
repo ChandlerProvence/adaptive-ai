@@ -1,0 +1,23 @@
+{
+  "kind": "task",
+  "id": "task.mp_identifiedTasks",
+  "version": 0,
+  "name": "Identified Tasks",
+  "status": "published",
+  "body": {
+    "summary": "[MDMP — Mission Analysis / Identified Tasks]\nIdentify specified, implied, and essential tasks from the mission and higher guidance.\nPopulate display_text with human-readable narrative for the UI.\nAll structured claims must include evidence_refs citing CIT-#### IDs.",
+    "prompt": {
+      "id": "prompt.mp_mdmp_identifiedTasks",
+      "version": 0
+    },
+    "artifactSchema": {
+      "id": "schema.mp_identifiedTasks",
+      "version": 0
+    },
+    "llm": {
+      "id": "llm.gpt_4o",
+      "version": 0
+    },
+    "requiredInputs": []
+  }
+}

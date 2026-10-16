@@ -1,0 +1,134 @@
+{
+  "kind": "workflow",
+  "id": "workflow.mp_coa_development",
+  "version": 0,
+  "name": "COA Development",
+  "status": "published",
+  "body": {
+    "defaults": {
+      "llm": {
+        "id": "llm.gpt_4o",
+        "version": 0
+      },
+      "purpose": {
+        "id": "purpose.mp_decision_support",
+        "version": 0
+      },
+      "evidenceRequirement": "Cite supplied evidence. Mark insufficient evidence explicitly.",
+      "detail": "High"
+    },
+    "nodes": [
+      {
+        "id": "coa_options",
+        "title": "COA Options",
+        "executable": true,
+        "task": {
+          "id": "task.mp_coaOptions",
+          "version": 0
+        },
+        "dependencies": [],
+        "upstream": [
+          {
+            "workflow": {
+              "id": "workflow.mp_mission_analysis",
+              "version": 0
+            },
+            "nodeId": "mission_statement"
+          },
+          {
+            "workflow": {
+              "id": "workflow.mp_mission_analysis",
+              "version": 0
+            },
+            "nodeId": "identified_tasks"
+          },
+          {
+            "workflow": {
+              "id": "workflow.mp_mission_analysis",
+              "version": 0
+            },
+            "nodeId": "priorities"
+          },
+          {
+            "workflow": {
+              "id": "workflow.mp_mission_analysis",
+              "version": 0
+            },
+            "nodeId": "correlation_of_forces"
+          }
+        ]
+      },
+      {
+        "id": "coa",
+        "title": "COA",
+        "executable": true,
+        "task": {
+          "id": "task.mp_coa_option",
+          "version": 0
+        },
+        "dependencies": [
+          "coa_options"
+        ]
+      },
+      {
+        "id": "initial_forces",
+        "title": "Array of Initial Forces",
+        "executable": true,
+        "task": {
+          "id": "task.mp_initialForces",
+          "version": 0
+        },
+        "dependencies": [
+          "coa_options"
+        ],
+        "upstream": [
+          {
+            "workflow": {
+              "id": "workflow.mp_mission_analysis",
+              "version": 0
+            },
+            "nodeId": "correlation_of_forces"
+          }
+        ]
+      },
+      {
+        "id": "broad_concept",
+        "title": "Broad Concept",
+        "executable": true,
+        "task": {
+          "id": "task.mp_broadConcept",
+          "version": 0
+        },
+        "dependencies": [
+          "coa_options",
+          "initial_forces"
+        ]
+      },
+      {
+        "id": "assign_hqs",
+        "title": "Assign Headquarters",
+        "executable": true,
+        "task": {
+          "id": "task.mp_assignHQs",
+          "version": 0
+        },
+        "dependencies": [
+          "broad_concept"
+        ]
+      },
+      {
+        "id": "coa_statement_and_sketch",
+        "title": "COA Statement and Sketch",
+        "executable": true,
+        "task": {
+          "id": "task.mp_coaStatementAndSketch",
+          "version": 0
+        },
+        "dependencies": [
+          "broad_concept",
+          "assign_hqs"
+        ]
+      }
+    ]
+  }
+}

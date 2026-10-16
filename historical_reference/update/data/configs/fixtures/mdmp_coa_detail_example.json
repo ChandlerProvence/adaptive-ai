@@ -1,0 +1,32 @@
+{
+  "artifact_type": "COA_1",
+  "schema_version": "1.0.0",
+  "context": {
+    "mission_id": "example-mission",
+    "mission_type": "MISO",
+    "organization_id": "ORG-1",
+    "team_id": "TEAM-1",
+    "aoi": "AOI-EXAMPLE",
+    "time_window": "P30D",
+    "task_id": "example-task",
+    "purpose_id": "planning"
+  },
+  "display_text": "Example narrative for UI display.",
+  "citations": [],
+  "coa": {
+    "id": "COA-1",
+    "title": "Example COA",
+    "description": "Example course of action description for fixture validation.",
+    "phasing": [
+      {
+        "phase": "I",
+        "objective": "Establish conditions"
+      }
+    ],
+    "main_effort": "Main effort example",
+    "risks": [
+      "Example risk"
+    ],
+    "evidence_refs": []
+  }
+}

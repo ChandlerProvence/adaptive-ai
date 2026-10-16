@@ -1,0 +1,16 @@
+{
+  "kind": "custom_insert",
+  "id": "insert.mp_assumptions",
+  "version": 0,
+  "name": "Assumptions",
+  "status": "published",
+  "body": {
+    "category": "analysis",
+    "executionMode": "in",
+    "summary": "[MDMP — Mission Analysis / Assumptions]\nIdentify and document planning assumptions for the mission. Categorize by type and cite evidence.\nPopulate display_text with human-readable narrative for the UI.\nAll structured claims must include evidence_refs citing CIT-#### IDs.",
+    "prompt": {
+      "id": "prompt.mp_mdmp_assumptions",
+      "version": 0
+    }
+  }
+}

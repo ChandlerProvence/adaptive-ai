@@ -1,0 +1,44 @@
+# Assessment: evidence-heavy. Quantitative + qualitative. Gaps clearly identified.
+description: |
+  Evidence-heavy assessment. Combine quantitative and qualitative analysis.
+  Clearly identify gaps, limitations, and confidence in findings.
+
+audience:
+  analyst: |
+    Evidence-heavy assessment. Quantitative and qualitative analysis; clearly identify gaps,
+    limitations, and confidence. Full citation and source mapping.
+  executive: |
+    Summary of key findings, confidence levels, and gaps. Lead with conclusions and risks;
+    keep detail in annex or appendix. Executive summary format.
+  partner: |
+    Findings with shared relevance; gaps and limitations that affect partner domains.
+    Clear confidence and evidence; coordination implications called out.
+  commander: |
+    Assessment conclusions, confidence, and gaps. Risk and opportunity highlighted;
+    concise with optional detail for deeper dive.
+  researcher: |
+    Full analytical assessment. Quantitative and qualitative; all gaps and limitations
+    documented. Hypothesis and uncertainty explicit.
+
+intended_use:
+  findings_report: |
+    Structured findings with evidence; conclusions and confidence; gaps identified.
+  gap_analysis: |
+    Emphasize gaps, limitations, and missing evidence; what is unknown or uncertain.
+  confidence_statement: |
+    Confidence levels and evidence strength; where assessment is strong or weak.
+
+release_level:
+  draft: Preliminary assessment; findings may change with new evidence.
+  assessment: Assessment complete; suitable for use or decision support.
+  exploratory: Early assessment; expect revision as more evidence available.
+
+time_sensitivity:
+  high: Urgent assessment; key findings and gaps only; minimal detail.
+  medium: Normal assessment timeline; full findings and gap analysis.
+  low: Thorough assessment; maximum evidence and caveats.
+
+risk_tolerance:
+  high: Include tentative findings; uncertainty acceptable.
+  moderate: Balance confidence and completeness; flag uncertainties.
+  low: Only well-supported findings; minimize speculation.

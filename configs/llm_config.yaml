@@ -1,0 +1,10 @@
+# LiteLLM proxy (Leidos) - use env for secrets
+base_url: "https://litellm.iho.leidos.com/v1"
+api_key_env: LITELLM_API_KEY
+api_key_header: x-litellm-api-key
+
+model: "gpt-4o"
+temperature: 0.2
+
+# Embeddings API (same base_url / API key as chat). Used by pgvector ingest and retrieval queries.
+embedding_model: "text-embedding-3-small"

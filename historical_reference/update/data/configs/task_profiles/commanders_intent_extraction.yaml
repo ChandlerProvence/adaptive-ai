@@ -1,0 +1,35 @@
+# Commander's Intent Extraction — mission-agnostic; extracts commander's intent from documents.
+
+task_id: commanders_intent_extraction
+name: "Commander's Intent Extraction"
+
+artifact:
+  artifact_type: COMMANDERS_INTENT
+  schema_ref: commanders_intent.schema.json
+
+retrieval:
+  mode: doc_file
+  # doc_path passed at runtime from input
+
+# Use graph-based prompt system with default template
+prompt_template: "default.yaml"
+
+failure_behavior:
+  on_validation_failure:
+    save_partial: true
+    save_raw_response: true
+    exit_code: 1
+    message: "Commander's intent extraction output failed schema validation; partial outputs saved."
+  on_llm_error:
+    exit_code: 2
+    message: "LiteLLM API error. Ensure VPN is connected if required."
+  on_parse_error:
+    save_partial: true
+    save_raw_response: true
+    exit_code: 2
+    message: "Could not extract valid JSON from LLM response."
+
+description: |
+  Extract commander's intent from the provided document. Identify the commander's
+  desired end state, key tasks, and conditions that define success. Parse intent statements
+  and distinguish between explicit intent and inferred intent. All extractions must cite evidence.

@@ -1,0 +1,14 @@
+{
+  "kind": "prompt",
+  "id": "prompt.mp_mdmp_mission_statement_generation",
+  "version": 0,
+  "name": "Mission Statement",
+  "status": "published",
+  "forkedFrom": {
+    "id": "prompt.mp_mdmp_base",
+    "version": 0
+  },
+  "overrides": {
+    "objective": "Produce one concise mission statement (and optionally aoi/aor if absent in mission context)\nfrom the provided document. Output must be valid JSON with required mission_statement\nand optional aoi, aor strings. Tone and audience come from the purpose profile."
+  }
+}

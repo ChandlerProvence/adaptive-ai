@@ -1,0 +1,23 @@
+{
+  "kind": "task",
+  "id": "task.mp_higherHqAnalysis",
+  "version": 0,
+  "name": "Higher HQ Analysis",
+  "status": "published",
+  "body": {
+    "summary": "[MDMP — Mission Analysis / Higher HQ Analysis]\nAnalyze higher headquarters guidance, directives, and intent applicable to this mission.\nPopulate display_text with human-readable narrative for the UI.\nAll structured claims must include evidence_refs citing CIT-#### IDs.",
+    "prompt": {
+      "id": "prompt.mp_mdmp_higherHqAnalysis",
+      "version": 0
+    },
+    "artifactSchema": {
+      "id": "schema.mp_higherHqAnalysis",
+      "version": 0
+    },
+    "llm": {
+      "id": "llm.gpt_4o",
+      "version": 0
+    },
+    "requiredInputs": []
+  }
+}

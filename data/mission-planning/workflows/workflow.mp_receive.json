@@ -1,0 +1,45 @@
+{
+  "kind": "workflow",
+  "id": "workflow.mp_receive",
+  "version": 0,
+  "name": "Receive the Mission",
+  "status": "published",
+  "body": {
+    "defaults": {
+      "llm": {
+        "id": "llm.gpt_4o",
+        "version": 0
+      },
+      "purpose": {
+        "id": "purpose.mp_planning",
+        "version": 0
+      },
+      "evidenceRequirement": "Cite supplied evidence. Mark insufficient evidence explicitly.",
+      "detail": "High"
+    },
+    "nodes": [
+      {
+        "id": "current_environment",
+        "title": "Current Environment",
+        "executable": true,
+        "task": {
+          "id": "task.mp_currentEnvironment",
+          "version": 0
+        },
+        "dependencies": []
+      },
+      {
+        "id": "running_estimate",
+        "title": "Running Estimate",
+        "executable": true,
+        "task": {
+          "id": "task.mp_runningEstimate",
+          "version": 0
+        },
+        "dependencies": [
+          "current_environment"
+        ]
+      }
+    ]
+  }
+}

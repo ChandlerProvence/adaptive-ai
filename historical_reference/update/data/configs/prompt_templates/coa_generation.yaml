@@ -1,0 +1,118 @@
+version: "1.0"
+description: "COA Generation prompt template with COA-specific instructions"
+extends: "default.yaml"
+
+nodes:
+  - id: "system_role"
+    type: "template"
+    template: |
+      You are supporting a {{ mission_type }} planner generating a COA_PACKAGE for task: {{ task_id }}.
+
+  - id: "requirements"
+    type: "static"
+    content: |
+      CRITICAL REQUIREMENTS - NO HALLUCINATION:
+      1. EVERY claim, fact, assessment, or recommendation MUST be directly supported by the provided evidence
+      2. DO NOT invent, assume, or infer information not explicitly stated in the evidence
+      3. DO NOT use general knowledge or training data - ONLY use the provided evidence
+      4. If evidence is insufficient for a required field, state "Insufficient evidence" rather than inventing content
+      5. EVERY statement must be traceable to a specific evidence source
+      6. Prioritize evidence from preferred/trusted sources when available
+      7. If you cannot substantiate a claim with evidence, explicitly state the limitation
+
+  - id: "task_description"
+    type: "template"
+    template: |
+      {{ task_config.description }}
+
+  - id: "mission_context"
+    type: "template"
+    template: |
+      MISSION CONTEXT:
+      Mission Statement: {{ mission_statement }}
+      AOI/AOR: {{ aoi }}
+      Time Window: {{ time_window }}
+      Organization: {{ organization_id }}
+      Team: {{ team_id }}
+
+  - id: "purpose_profile"
+    type: "template"
+    template: |
+      PURPOSE PROFILE (WHY — SCOPE YOUR OUTPUT ACCORDINGLY):
+      Audience: {{ audience }}
+      Intended Use: {{ intended_use }}
+      Release Level: {{ release_level }}
+      Time Sensitivity: {{ time_sensitivity }}
+      Risk Tolerance: {{ risk_tolerance }}
+
+  - id: "evidence"
+    type: "evidence_formatter"
+
+  - id: "output_overrides"
+    type: "template"
+    template: |
+
+      OUTPUT CONSTRAINTS:
+      - Maximum COAs: {{ task_config.output_overrides.max_coas if task_config.output_overrides is defined else 3 }}
+      - Executive summary bullets: {{ task_config.output_overrides.executive_summary_bullets if task_config.output_overrides is defined else 3 }}
+
+  - id: "cot_instructions"
+    type: "template"
+    template: |
+      APPROACH THIS TASK USING CHAIN-OF-THOUGHT REASONING. Show your reasoning process step-by-step, then provide the final artifact.
+
+      STEP 1: EVIDENCE ANALYSIS
+      - Review each evidence block systematically
+      - Identify key facts, claims, and data points from each source
+      - Note source credibility and recency
+      - Identify any conflicts or gaps in evidence
+      - List specific evidence references for each key finding (use [EVIDENCE 1], [EVIDENCE 2], etc.)
+      - Show your analysis of each evidence source
+
+      STEP 2: PATTERN IDENTIFICATION
+      - Look for patterns across evidence sources
+      - Identify recurring themes or trends
+      - Note temporal patterns if timestamps available
+      - Identify correlations between different evidence points
+      - Cite specific evidence for each pattern identified (use [EVIDENCE X] references)
+      - Show how patterns relate to the mission objectives
+
+      STEP 3: SYNTHESIS AND INTERPRETATION
+      - Synthesize evidence into coherent insights
+      - Connect evidence points to mission objectives: {{ mission_statement }}
+      - Identify implications for decision-making
+      - Note limitations and uncertainties
+      - Ensure every insight traces back to specific evidence
+      - Consider the audience ({{ audience }}) and intended use ({{ intended_use }}) in your synthesis
+
+      STEP 4: ARTIFACT CONSTRUCTION
+      - Structure your findings according to the required artifact format
+      - Generate at most {{ max_coas }} COAs (prioritize the most viable options)
+      - Ensure every claim has an evidence citation
+      - Prioritize evidence from preferred sources when marked
+      - Acknowledge gaps explicitly rather than filling with assumptions
+      - Maintain language appropriate for {{ audience }} audience ({{ format_preference }} format)
+      - Focus on {{ intended_use }} - structure content to support this use case
+      - Provide executive summary with {{ exec_bullets }} bullets
+
+  - id: "schema_instructions"
+    type: "schema_generator"
+
+edges:
+  - from: "system_role"
+    to: "requirements"
+  - from: "requirements"
+    to: "task_description"
+  - from: "task_description"
+    to: "mission_context"
+  - from: "mission_context"
+    to: "purpose_profile"
+  - from: "purpose_profile"
+    to: "evidence"
+  - from: "evidence"
+    to: "output_overrides"
+  - from: "output_overrides"
+    to: "cot_instructions"
+  - from: "cot_instructions"
+    to: "schema_instructions"
+

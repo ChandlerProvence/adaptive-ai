@@ -1,0 +1,21 @@
+# Storage: PostgreSQL (metadata) + ChromaDB (vector). Use env vars for secrets.
+
+postgres:
+  enabled: true
+  host: "${IMP_POSTGRES_HOST:-localhost}"
+  port: "${IMP_POSTGRES_PORT:-5432}"
+  database: "${IMP_POSTGRES_DATABASE:-imperium}"
+  user: "${IMP_POSTGRES_USER:-imperium}"
+  password_env: IMP_POSTGRES_PASSWORD
+  schema: "${IMP_POSTGRES_SCHEMA:-public}"
+  # Table for run metadata (audit, replay)
+  runs_table: imp_runs
+
+chromadb:
+  enabled: true
+  # Persistent path; or use client_settings for remote/hosted
+  path: "${IMP_CHROMADB_PATH:-./data/chromadb}"
+  # Collection used for evidence retrieval (task/retrieval can override)
+  default_collection: imp_evidence
+  # Embedding model for query (when not using collection's default)
+  # embedding_model: null

@@ -1,0 +1,15 @@
+{
+  "kind": "artifact_schema",
+  "id": "schema.mp_runningEstimate",
+  "version": 0,
+  "name": "Running Estimate",
+  "status": "published",
+  "body": {
+    "summary": "MDMP artifact for Running Estimate (COA Comparison).",
+    "requiredSections": [
+      "display_text",
+      "approved_content"
+    ],
+    "sourceFile": "historical_reference/update/data/schemas/runningEstimate.schema.json"
+  }
+}

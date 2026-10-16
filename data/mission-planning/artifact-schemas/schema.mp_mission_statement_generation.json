@@ -1,0 +1,14 @@
+{
+  "kind": "artifact_schema",
+  "id": "schema.mp_mission_statement_generation",
+  "version": 0,
+  "name": "Mission Statement",
+  "status": "published",
+  "body": {
+    "summary": "Output of mission-statement generation from a document.",
+    "requiredSections": [
+      "mission_statement"
+    ],
+    "sourceFile": "historical_reference/update/data/schemas/mission_statement_output.schema.json"
+  }
+}

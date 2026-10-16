@@ -1,0 +1,15 @@
+{
+  "kind": "artifact_schema",
+  "id": "schema.mp_decisionMatrix",
+  "version": 0,
+  "name": "Decision Matrix",
+  "status": "published",
+  "body": {
+    "summary": "MDMP artifact for Decision Matrix (COA Comparison).",
+    "requiredSections": [
+      "display_text",
+      "matrix"
+    ],
+    "sourceFile": "historical_reference/update/data/schemas/decisionMatrix.schema.json"
+  }
+}

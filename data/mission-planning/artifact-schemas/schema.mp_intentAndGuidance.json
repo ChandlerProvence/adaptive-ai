@@ -1,0 +1,15 @@
+{
+  "kind": "artifact_schema",
+  "id": "schema.mp_intentAndGuidance",
+  "version": 0,
+  "name": "Commander's Intent",
+  "status": "published",
+  "body": {
+    "summary": "MDMP artifact for Intent and Guidance (Mission Analysis).",
+    "requiredSections": [
+      "display_text",
+      "guidance_items"
+    ],
+    "sourceFile": "historical_reference/update/data/schemas/intentAndGuidance.schema.json"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "kind": "artifact_schema",
+  "id": "schema.mp_intelligencePreparation",
+  "version": 0,
+  "name": "Intelligence Preparation",
+  "status": "published",
+  "body": {
+    "summary": "MDMP artifact for Intelligence Preparation (Mission Analysis).",
+    "requiredSections": [
+      "display_text",
+      "factors"
+    ],
+    "sourceFile": "historical_reference/update/data/schemas/intelligencePreparation.schema.json"
+  }
+}

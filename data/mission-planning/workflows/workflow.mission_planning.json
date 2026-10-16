@@ -1,0 +1,120 @@
+{
+  "kind": "workflow",
+  "id": "workflow.mission_planning",
+  "version": 0,
+  "name": "Mission Planning",
+  "status": "published",
+  "body": {
+    "defaults": {
+      "llm": {
+        "id": "llm.gpt_4o",
+        "version": 0
+      },
+      "purpose": {
+        "id": "purpose.mp_planning",
+        "version": 0
+      },
+      "evidenceRequirement": "Cite supplied evidence. Mark insufficient evidence explicitly.",
+      "detail": "High"
+    },
+    "nodes": [
+      {
+        "id": "receive_the_mission",
+        "title": "Receive the Mission",
+        "executable": false,
+        "workflow": {
+          "id": "workflow.mp_receive",
+          "version": 0
+        },
+        "purpose": {
+          "id": "purpose.mp_planning",
+          "version": 0
+        },
+        "dependencies": []
+      },
+      {
+        "id": "mission_analysis",
+        "title": "Mission Analysis",
+        "executable": false,
+        "workflow": {
+          "id": "workflow.mp_mission_analysis",
+          "version": 0
+        },
+        "purpose": {
+          "id": "purpose.mp_planning",
+          "version": 0
+        },
+        "dependencies": [
+          "receive_the_mission"
+        ]
+      },
+      {
+        "id": "coa_development",
+        "title": "COA Development",
+        "executable": false,
+        "workflow": {
+          "id": "workflow.mp_coa_development",
+          "version": 0
+        },
+        "purpose": {
+          "id": "purpose.mp_decision_support",
+          "version": 0
+        },
+        "dependencies": [
+          "mission_analysis"
+        ]
+      },
+      {
+        "id": "coa_analysis",
+        "title": "COA Analysis",
+        "executable": false,
+        "workflow": {
+          "id": "workflow.mp_coa_analysis",
+          "version": 0
+        },
+        "purpose": {
+          "id": "purpose.mp_decision_support",
+          "version": 0
+        },
+        "dependencies": [
+          "coa_development"
+        ]
+      },
+      {
+        "id": "coa_comparison",
+        "title": "COA Comparison",
+        "executable": false,
+        "workflow": {
+          "id": "workflow.mp_coa_comparison",
+          "version": 0
+        },
+        "purpose": {
+          "id": "purpose.mp_decision_support",
+          "version": 0
+        },
+        "dependencies": [
+          "mission_analysis",
+          "coa_development",
+          "coa_analysis"
+        ]
+      },
+      {
+        "id": "coa_approval",
+        "title": "COA Approval",
+        "executable": false,
+        "workflow": {
+          "id": "workflow.mp_coa_approval",
+          "version": 0
+        },
+        "purpose": {
+          "id": "purpose.mp_execution_support",
+          "version": 0
+        },
+        "dependencies": [
+          "coa_comparison",
+          "mission_analysis"
+        ]
+      }
+    ]
+  }
+}

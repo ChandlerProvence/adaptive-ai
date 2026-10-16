@@ -1,0 +1,33 @@
+version: "1.0"
+description: "Prompt template for generating mission statements from documents"
+
+nodes:
+  - id: "system_role"
+    type: "static"
+    content: |
+      You are an expert analyst. Based on the document below, produce a single concise mission statement suitable for intelligence planning.
+
+  - id: "audience_context"
+    type: "template"
+    template: |
+      AUDIENCE/TONE: {{ audience }}
+      INTENDED USE: {{ intended_use }}
+
+  - id: "evidence"
+    type: "evidence_formatter"
+    dependencies: []
+
+  - id: "output_instructions"
+    type: "static"
+    content: |
+      Respond with a single JSON object. Required: "mission_statement" (string).
+      If the document supports it, also include "aoi" (area of interest) and/or "aor" (area of responsibility) as strings.
+      Omit aoi/aor if not inferable from the document.
+
+      Output only valid JSON, no markdown or explanation.
+
+execution_order:
+  - system_role
+  - audience_context
+  - evidence
+  - output_instructions

@@ -1,0 +1,20 @@
+{
+  "kind": "context",
+  "id": "context.mission_planning",
+  "version": 0,
+  "name": "Mission Planning",
+  "status": "published",
+  "body": {
+    "contextType": "mission",
+    "statement": "Plan a mission from receipt through approval, using the joint planning process.",
+    "organization": "Planning staff",
+    "timeWindow": "The operation's time window",
+    "areaOfResponsibility": "The command's assigned area of responsibility",
+    "standingGuidance": "Apply the joint planning process. Develop more than one course of action, keep assumptions explicit, and wait for approval before treating one course as the decision.",
+    "evidenceStandard": "Cite supplied evidence for every claim. Mark insufficient evidence explicitly.",
+    "knownConstraints": [
+      "Claims require supplied evidence",
+      "Every mission inherits this staff, standing guidance, evidence standard, and area of responsibility"
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+# MDMP — Mission Receive / Current Environment
+
+task_id: currentEnvironment
+name: "MDMP Current Environment"
+
+artifact:
+  artifact_type: CURRENT_ENVIRONMENT
+  schema_ref: currentEnvironment.schema.json
+
+retrieval:
+  mode: doc_file
+
+prompt_template: "mdmp_currentEnvironment.yaml"
+
+failure_behavior:
+  on_validation_failure:
+    message: "MDMP output failed schema validation."
+  on_llm_error:
+    message: "LLM API error during MDMP task execution."
+  on_parse_error:
+    message: "Could not extract valid JSON from MDMP response."
+
+description: |
+  [MDMP — Mission Receive / Current Environment]
+  Describe the current operational environment (PMESII-PT, threats, terrain, civil considerations). Summarize key environmental factors for MDMP mission receive.
+  Populate display_text with human-readable narrative for the UI.
+  All structured claims must include evidence_refs citing CIT-#### IDs.

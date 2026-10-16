@@ -1,0 +1,23 @@
+{
+  "kind": "task",
+  "id": "task.mp_decisionMatrix",
+  "version": 0,
+  "name": "Decision Matrix",
+  "status": "published",
+  "body": {
+    "summary": "[MDMP — COA Comparison / Decision Matrix]\nBuild a decision matrix scoring each COA against criteria.\nPopulate display_text with human-readable narrative for the UI.\nAll structured claims must include evidence_refs citing CIT-#### IDs.",
+    "prompt": {
+      "id": "prompt.mp_mdmp_decisionMatrix",
+      "version": 0
+    },
+    "artifactSchema": {
+      "id": "schema.mp_decisionMatrix",
+      "version": 0
+    },
+    "llm": {
+      "id": "llm.gpt_4o",
+      "version": 0
+    },
+    "requiredInputs": []
+  }
+}

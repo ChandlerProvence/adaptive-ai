@@ -1,0 +1,14 @@
+{
+  "kind": "prompt",
+  "id": "prompt.mp_mdmp_higherHqAnalysis",
+  "version": 0,
+  "name": "Higher HQ Analysis",
+  "status": "published",
+  "forkedFrom": {
+    "id": "prompt.mp_mdmp_base",
+    "version": 0
+  },
+  "overrides": {
+    "objective": "[MDMP — Mission Analysis / Higher HQ Analysis]\nAnalyze higher headquarters guidance, directives, and intent applicable to this mission.\nPopulate display_text with human-readable narrative for the UI.\nAll structured claims must include evidence_refs citing CIT-#### IDs."
+  }
+}

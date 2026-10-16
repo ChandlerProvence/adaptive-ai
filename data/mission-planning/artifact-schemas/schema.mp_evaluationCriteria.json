@@ -1,0 +1,15 @@
+{
+  "kind": "artifact_schema",
+  "id": "schema.mp_evaluationCriteria",
+  "version": 0,
+  "name": "Evaluation Criteria",
+  "status": "published",
+  "body": {
+    "summary": "MDMP artifact for Evaluation Criteria (COA Comparison).",
+    "requiredSections": [
+      "display_text",
+      "criteria"
+    ],
+    "sourceFile": "historical_reference/update/data/schemas/evaluationCriteria.schema.json"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "kind": "prompt",
+  "id": "prompt.mp_mdmp_base",
+  "version": 0,
+  "name": "MDMP Base",
+  "status": "published",
+  "forkedFrom": {
+    "id": "prompt.mp_default",
+    "version": 0
+  },
+  "overrides": {
+    "role": "You are supporting a planner for the pinned mission. Perform the pinned MDMP task and produce its artifact type.",
+    "output": "DISPLAY_TEXT (UI NARRATIVE PANEL):\n- Write 2-6 paragraphs of readable briefing prose\n- Summarize key conclusions; reference evidence in structured fields via citations\n- display_text must not contain JSON, code fences, or field names from the schema\n\nShow the reasoning, then provide the final artifact in the required format."
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "kind": "artifact_schema",
+  "id": "schema.mp_compareCoas",
+  "version": 0,
+  "name": "Compare COAs",
+  "status": "published",
+  "body": {
+    "summary": "MDMP artifact for Compare COAs (COA Comparison).",
+    "requiredSections": [
+      "display_text",
+      "criteria"
+    ],
+    "sourceFile": "historical_reference/update/data/schemas/compareCoas.schema.json"
+  }
+}

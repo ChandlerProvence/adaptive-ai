@@ -1,0 +1,23 @@
+{
+  "kind": "task",
+  "id": "task.mp_currentEnvironment",
+  "version": 0,
+  "name": "Current Environment",
+  "status": "published",
+  "body": {
+    "summary": "[MDMP — Mission Receive / Current Environment]\nDescribe the current operational environment (PMESII-PT, threats, terrain, civil considerations). Summarize key environmental factors for MDMP mission receive.\nPopulate display_text with human-readable narrative for the UI.\nAll structured claims must include evidence_refs citing CIT-#### IDs.",
+    "prompt": {
+      "id": "prompt.mp_mdmp_currentEnvironment",
+      "version": 0
+    },
+    "artifactSchema": {
+      "id": "schema.mp_currentEnvironment",
+      "version": 0
+    },
+    "llm": {
+      "id": "llm.gpt_4o",
+      "version": 0
+    },
+    "requiredInputs": []
+  }
+}

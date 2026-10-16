@@ -1,0 +1,15 @@
+{
+  "kind": "artifact_schema",
+  "id": "schema.mp_assignHQs",
+  "version": 0,
+  "name": "Assign Headquarters",
+  "status": "published",
+  "body": {
+    "summary": "MDMP artifact for Assign HQs (COA Development).",
+    "requiredSections": [
+      "display_text",
+      "units"
+    ],
+    "sourceFile": "historical_reference/update/data/schemas/assignHQs.schema.json"
+  }
+}

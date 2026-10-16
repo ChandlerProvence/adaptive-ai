@@ -1,0 +1,44 @@
+# Execution Support: tasking, phasing, timing. Operational constraints emphasized.
+description: |
+  Support execution with concrete tasking, phasing, and timing.
+  Emphasize operational constraints and feasibility.
+
+audience:
+  operator: |
+    Concrete tasking, phasing, and timing. Emphasize operational constraints and feasibility.
+    Actionable steps; clear sequencing and dependencies.
+  executive: |
+    High-level phasing and key milestones; critical constraints and go/no-go points.
+    Concise; enough to track execution without operational detail.
+  partner: |
+    Joint or coordinated tasking and phasing. Clear handoffs and partner dependencies;
+    timing that supports alignment.
+  commander: |
+    Phasing, key decision points, and resource/timing constraints. Actionable orders;
+    emphasize feasibility and risk at each phase.
+  analyst: |
+    Detailed tasking and phasing with evidence and assumptions. Full operational constraints;
+    support replanning and contingency analysis.
+
+intended_use:
+  tasking_order: |
+    Clear task assignment and sequence; who does what, when; actionable.
+  phasing_plan: |
+    Phases, milestones, and decision points; dependencies and constraints per phase.
+  constraint_summary: |
+    Operational constraints and feasibility; what can and cannot be done; risks.
+
+release_level:
+  draft: Working tasking; not yet executable; may change.
+  executable: Tasking and phasing approved; suitable for execution.
+  exploratory: Preliminary phasing; for planning only; expect revision.
+
+time_sensitivity:
+  high: Urgent execution; minimal task set and critical path only.
+  medium: Normal execution timeline; full tasking and phasing.
+  low: Deliberate; full detail and contingency tasking.
+
+risk_tolerance:
+  high: Aggressive timeline; accept some execution risk.
+  moderate: Balance speed and feasibility; flag execution risks.
+  low: Conservative; only feasible tasking; minimize execution risk.

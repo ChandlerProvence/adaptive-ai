@@ -1,0 +1,93 @@
+version: "1.0"
+description: "MDMP shared prompt base — common nodes for all MDMP tasks"
+
+nodes:
+  - id: "mdmp_step_context"
+    type: "static"
+    content: |
+      UI SECTION: COA Development
+      MDMP STEP: COA 2
+      Complete this planning step for the mission context below.
+
+  - id: "system_role"
+    type: "template"
+    template: |
+      You are supporting a {{ mission_type }} planner performing MDMP task: {{ task_id }} (artifact type: {{ artifact_type }}).
+
+  - id: "requirements"
+    type: "static"
+    content: |
+      CRITICAL REQUIREMENTS - NO HALLUCINATION:
+      1. EVERY claim MUST be supported by provided evidence or explicitly marked as insufficient evidence
+      2. DO NOT invent facts not in evidence
+      3. Populate display_text with clear, conversational prose for the commander/staff UI (markdown allowed)
+      4. display_text must NOT contain JSON, code fences, or field names from the schema
+      5. Structured data belongs in the schema payload fields with citation IDs (CIT-0001 format)
+
+  - id: "task_description"
+    type: "template"
+    template: |
+      {{ task_config.description }}
+
+  - id: "mission_context"
+    type: "template"
+    template: |
+      MISSION CONTEXT:
+      Mission Statement: {{ mission_statement }}
+      AOI/AOR: {{ aoi }}
+      Time Window: {{ time_window }}
+      Organization: {{ organization_id }}
+      Team: {{ team_id }}
+
+  - id: "purpose_profile"
+    type: "template"
+    template: |
+      PURPOSE PROFILE:
+      Audience: {{ audience }}
+      Intended Use: {{ intended_use }}
+      Format Preference: {{ format_preference }}
+      Risk Tolerance: {{ risk_tolerance }}
+
+  - id: "display_text_rules"
+    type: "static"
+    content: |
+      DISPLAY_TEXT (UI NARRATIVE PANEL):
+      - Write 2-6 paragraphs of readable briefing prose
+      - Suitable for {{ audience }} and {{ intended_use }}
+      - Summarize key conclusions; reference evidence in structured fields via citations
+
+  - id: "evidence"
+    type: "evidence_formatter"
+
+  - id: "cot_instructions"
+    type: "static"
+    content: |
+      Use chain-of-thought (STEP 1-4), then output a single valid JSON artifact matching the schema.
+
+      STEP 1: EVIDENCE ANALYSIS
+      STEP 2: PATTERN IDENTIFICATION
+      STEP 3: SYNTHESIS
+      STEP 4: ARTIFACT CONSTRUCTION (include display_text and structured fields)
+
+  - id: "schema_instructions"
+    type: "schema_generator"
+
+edges:
+  - from: "mdmp_step_context"
+    to: "system_role"
+  - from: "system_role"
+    to: "requirements"
+  - from: "requirements"
+    to: "task_description"
+  - from: "task_description"
+    to: "mission_context"
+  - from: "mission_context"
+    to: "purpose_profile"
+  - from: "purpose_profile"
+    to: "display_text_rules"
+  - from: "display_text_rules"
+    to: "evidence"
+  - from: "evidence"
+    to: "cot_instructions"
+  - from: "cot_instructions"
+    to: "schema_instructions"

@@ -1,0 +1,20 @@
+{
+  "kind": "custom_insert",
+  "id": "insert.mp_correlation",
+  "version": 0,
+  "name": "Correlation",
+  "status": "published",
+  "body": {
+    "category": "comparison",
+    "executionMode": "in",
+    "summary": "[MDMP — Mission Analysis / Correlation]\nCorrelate intelligence and information from multiple sources; identify patterns, gaps, and analytic conclusions.\nPopulate display_text with human-readable narrative for the UI.\nAll structured claims must include evidence_refs citing CIT-#### IDs.",
+    "prompt": {
+      "id": "prompt.mp_mdmp_base",
+      "version": 0
+    },
+    "artifactSchema": {
+      "id": "schema.mp_correlation",
+      "version": 0
+    }
+  }
+}

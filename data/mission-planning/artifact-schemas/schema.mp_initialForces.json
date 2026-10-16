@@ -1,0 +1,15 @@
+{
+  "kind": "artifact_schema",
+  "id": "schema.mp_initialForces",
+  "version": 0,
+  "name": "Array of Initial Forces",
+  "status": "published",
+  "body": {
+    "summary": "MDMP artifact for Initial Forces (COA Development).",
+    "requiredSections": [
+      "display_text",
+      "units"
+    ],
+    "sourceFile": "historical_reference/update/data/schemas/initialForces.schema.json"
+  }
+}

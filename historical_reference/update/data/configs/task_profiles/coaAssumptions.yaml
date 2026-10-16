@@ -1,0 +1,27 @@
+# MDMP — COA Analysis / COA Assumptions
+
+task_id: coaAssumptions
+name: "MDMP COA Assumptions"
+
+artifact:
+  artifact_type: COA_ASSUMPTIONS
+  schema_ref: coaAssumptions.schema.json
+
+retrieval:
+  mode: doc_file
+
+prompt_template: "mdmp_coaAssumptions.yaml"
+
+failure_behavior:
+  on_validation_failure:
+    message: "MDMP output failed schema validation."
+  on_llm_error:
+    message: "LLM API error during MDMP task execution."
+  on_parse_error:
+    message: "Could not extract valid JSON from MDMP response."
+
+description: |
+  [MDMP — COA Analysis / COA Assumptions]
+  Document assumptions specific to each COA under analysis.
+  Populate display_text with human-readable narrative for the UI.
+  All structured claims must include evidence_refs citing CIT-#### IDs.

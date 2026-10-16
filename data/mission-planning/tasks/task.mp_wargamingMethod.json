@@ -1,0 +1,23 @@
+{
+  "kind": "task",
+  "id": "task.mp_wargamingMethod",
+  "version": 0,
+  "name": "Wargaming Method",
+  "status": "published",
+  "body": {
+    "summary": "[MDMP — COA Analysis / Wargaming Method]\nDefine the wargaming method, sequence, and evaluation framework.\nPopulate display_text with human-readable narrative for the UI.\nAll structured claims must include evidence_refs citing CIT-#### IDs.",
+    "prompt": {
+      "id": "prompt.mp_mdmp_wargamingMethod",
+      "version": 0
+    },
+    "artifactSchema": {
+      "id": "schema.mp_wargamingMethod",
+      "version": 0
+    },
+    "llm": {
+      "id": "llm.gpt_4o",
+      "version": 0
+    },
+    "requiredInputs": []
+  }
+}

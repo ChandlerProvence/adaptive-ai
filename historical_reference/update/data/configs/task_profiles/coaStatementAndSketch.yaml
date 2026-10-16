@@ -1,0 +1,27 @@
+# MDMP — COA Development / COA Statement and Sketch
+
+task_id: coaStatementAndSketch
+name: "MDMP COA Statement and Sketch"
+
+artifact:
+  artifact_type: COA_STATEMENT_AND_SKETCH
+  schema_ref: coaStatementAndSketch.schema.json
+
+retrieval:
+  mode: doc_file
+
+prompt_template: "mdmp_coaStatementAndSketch.yaml"
+
+failure_behavior:
+  on_validation_failure:
+    message: "MDMP output failed schema validation."
+  on_llm_error:
+    message: "LLM API error during MDMP task execution."
+  on_parse_error:
+    message: "Could not extract valid JSON from MDMP response."
+
+description: |
+  [MDMP — COA Development / COA Statement and Sketch]
+  Produce the COA statement and sketch narrative describing the selected approach at concept level.
+  Populate display_text with human-readable narrative for the UI.
+  All structured claims must include evidence_refs citing CIT-#### IDs.

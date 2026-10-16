@@ -1,0 +1,20 @@
+{
+  "kind": "custom_insert",
+  "id": "insert.mp_assumption_analysis",
+  "version": 0,
+  "name": "Assumption Analysis",
+  "status": "published",
+  "body": {
+    "category": "analysis",
+    "executionMode": "in",
+    "summary": "Identify and analyze assumptions underlying the mission or operational plan.\nCategorize assumptions by type (factual, predictive, normative), assess their validity,\nidentify risks if assumptions prove false, and suggest validation strategies.\nAll assumptions must be traceable to evidence sources.",
+    "prompt": {
+      "id": "prompt.mp_mdmp_base",
+      "version": 0
+    },
+    "artifactSchema": {
+      "id": "schema.mp_assumption_analysis",
+      "version": 0
+    }
+  }
+}

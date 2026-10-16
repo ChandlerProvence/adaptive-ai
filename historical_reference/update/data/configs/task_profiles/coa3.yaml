@@ -1,0 +1,30 @@
+# MDMP — COA Development / COA 3
+
+task_id: coa3
+name: "MDMP COA 3"
+
+artifact:
+  artifact_type: COA_3
+  schema_ref: coa3.schema.json
+
+retrieval:
+  mode: doc_file
+
+prompt_template: "mdmp_coa3.yaml"
+
+failure_behavior:
+  on_validation_failure:
+    message: "MDMP output failed schema validation."
+  on_llm_error:
+    message: "LLM API error during MDMP task execution."
+  on_parse_error:
+    message: "Could not extract valid JSON from MDMP response."
+
+description: |
+  [MDMP — COA Development / COA 3]
+  Develop Course of Action 3 in detail (concept, phasing, main effort, risks).
+  Populate display_text with human-readable narrative for the UI.
+  All structured claims must include evidence_refs citing CIT-#### IDs.
+
+output_overrides:
+  coa_index: 3
